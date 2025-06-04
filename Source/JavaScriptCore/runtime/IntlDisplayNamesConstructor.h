@@ -25,6 +25,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include "InternalFunction.h"
 #include "IntlObject.h"
 
@@ -49,3 +50,4 @@ private:
 STATIC_ASSERT_ISO_SUBSPACE_SHARABLE(IntlDisplayNamesConstructor, InternalFunction);
 
 } // namespace JSC
+#endif

@@ -25,7 +25,7 @@
  */
 
 #pragma once
-
+#ifdef ENABLE_INTL
 #include "ISO8601.h"
 
 namespace JSC {
@@ -89,3 +89,4 @@ private:
 };
 
 } // namespace JSC
+#endif

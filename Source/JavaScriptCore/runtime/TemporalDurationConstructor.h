@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #pragma once
 
 #include "InternalFunction.h"
@@ -48,3 +49,4 @@ private:
 STATIC_ASSERT_ISO_SUBSPACE_SHARABLE(TemporalDurationConstructor, InternalFunction);
 
 } // namespace JSC
+#endif

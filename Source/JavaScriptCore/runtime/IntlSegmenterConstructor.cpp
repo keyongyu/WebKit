@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlSegmenterConstructor.h"
 
@@ -123,3 +124,4 @@ JSC_DEFINE_HOST_FUNCTION(intlSegmenterConstructorSupportedLocalesOf, (JSGlobalOb
 
 
 } // namespace JSC
+#endif

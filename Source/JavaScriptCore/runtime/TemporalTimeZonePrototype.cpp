@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalTimeZonePrototype.h"
 
@@ -111,3 +112,4 @@ JSC_DEFINE_HOST_FUNCTION(temporalTimeZonePrototypeFuncToJSON, (JSGlobalObject* g
 }
 
 } // namespace JSC
+#endif

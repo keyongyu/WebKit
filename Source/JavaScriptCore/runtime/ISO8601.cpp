@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "ISO8601.h"
 
@@ -1776,3 +1777,4 @@ bool isYearWithinLimits(double year)
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

@@ -25,6 +25,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include "JSObject.h"
 #include <wtf/unicode/icu/ICUHelpers.h>
 
@@ -83,3 +84,4 @@ private:
 };
 
 } // namespace JSC
+#endif

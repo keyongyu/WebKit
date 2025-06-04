@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalDuration.h"
 
@@ -698,3 +699,4 @@ String TemporalDuration::toString(JSGlobalObject* globalObject, const ISO8601::D
 }
 
 } // namespace JSC
+#endif

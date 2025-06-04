@@ -25,6 +25,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDateTimeFormatConstructor.h"
 
 #include "IntlDateTimeFormat.h"
@@ -137,3 +138,4 @@ JSC_DEFINE_HOST_FUNCTION(intlDateTimeFormatConstructorFuncSupportedLocalesOf, (J
 }
 
 } // namespace JSC
+#endif

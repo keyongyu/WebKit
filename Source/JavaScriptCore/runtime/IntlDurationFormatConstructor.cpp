@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDurationFormatConstructor.h"
 
 #include "IntlDurationFormat.h"
@@ -123,3 +124,4 @@ JSC_DEFINE_HOST_FUNCTION(intlDurationFormatConstructorSupportedLocalesOf, (JSGlo
 }
 
 } // namespace JSC
+#endif

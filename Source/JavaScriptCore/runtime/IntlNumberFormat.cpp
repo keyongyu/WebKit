@@ -26,6 +26,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlNumberFormat.h"
 
@@ -1471,3 +1472,4 @@ IntlMathematicalValue IntlMathematicalValue::parseString(JSGlobalObject* globalO
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

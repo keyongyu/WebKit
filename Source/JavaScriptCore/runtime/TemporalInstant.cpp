@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalInstant.h"
 
@@ -423,3 +424,4 @@ String TemporalInstant::toString(ISO8601::ExactTime exactTime, JSObject* timeZon
 }
 
 } // namespace JSC
+#endif

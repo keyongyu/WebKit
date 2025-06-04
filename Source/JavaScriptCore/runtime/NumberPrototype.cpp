@@ -44,7 +44,7 @@ WTF_ALLOW_UNSAFE_BUFFER_USAGE_BEGIN
 
 namespace JSC {
 
-static JSC_DECLARE_HOST_FUNCTION(numberProtoFuncToLocaleString);
+//static JSC_DECLARE_HOST_FUNCTION(numberProtoFuncToLocaleString);
 static JSC_DECLARE_HOST_FUNCTION(numberProtoFuncToFixed);
 static JSC_DECLARE_HOST_FUNCTION(numberProtoFuncToExponential);
 static JSC_DECLARE_HOST_FUNCTION(numberProtoFuncToPrecision);
@@ -59,7 +59,6 @@ const ClassInfo NumberPrototype::s_info = { "Number"_s, &NumberObject::s_info, &
 
 /* Source for NumberPrototype.lut.h
 @begin numberPrototypeTable
-  toLocaleString    numberProtoFuncToLocaleString   DontEnum|Function 0
   valueOf           numberProtoFuncValueOf          DontEnum|Function 0
   toFixed           numberProtoFuncToFixed          DontEnum|Function 1
   toExponential     numberProtoFuncToExponential    DontEnum|Function 1
@@ -619,28 +618,28 @@ JSC_DEFINE_HOST_FUNCTION(numberProtoFuncToString, (JSGlobalObject* globalObject,
     return JSValue::encode(numberToStringInternal(vm, doubleValue, radix));
 }
 
-JSC_DEFINE_HOST_FUNCTION(numberProtoFuncToLocaleString, (JSGlobalObject* globalObject, CallFrame* callFrame))
-{
-    VM& vm = globalObject->vm();
-    auto scope = DECLARE_THROW_SCOPE(vm);
-
-    double x;
-    if (!toThisNumber(callFrame->thisValue(), x))
-        return throwVMToThisNumberError(globalObject, scope, callFrame->thisValue());
-
-    JSValue locales = callFrame->argument(0);
-    JSValue options = callFrame->argument(1);
-    IntlNumberFormat* numberFormat = nullptr;
-    if (locales.isUndefined() && options.isUndefined())
-        numberFormat = globalObject->defaultNumberFormat();
-    else {
-        numberFormat = IntlNumberFormat::create(vm, globalObject->numberFormatStructure());
-        numberFormat->initializeNumberFormat(globalObject, locales, options);
-    }
-    RETURN_IF_EXCEPTION(scope, { });
-
-    RELEASE_AND_RETURN(scope, JSValue::encode(numberFormat->format(globalObject, x)));
-}
+//JSC_DEFINE_HOST_FUNCTION(numberProtoFuncToLocaleString, (JSGlobalObject* globalObject, CallFrame* callFrame))
+//{
+//    VM& vm = globalObject->vm();
+//    auto scope = DECLARE_THROW_SCOPE(vm);
+//
+//    double x;
+//    if (!toThisNumber(callFrame->thisValue(), x))
+//        return throwVMToThisNumberError(globalObject, scope, callFrame->thisValue());
+//
+//    JSValue locales = callFrame->argument(0);
+//    JSValue options = callFrame->argument(1);
+//    IntlNumberFormat* numberFormat = nullptr;
+//    if (locales.isUndefined() && options.isUndefined())
+//        numberFormat = globalObject->defaultNumberFormat();
+//    else {
+//        numberFormat = IntlNumberFormat::create(vm, globalObject->numberFormatStructure());
+//        numberFormat->initializeNumberFormat(globalObject, locales, options);
+//    }
+//    RETURN_IF_EXCEPTION(scope, { });
+//
+//    RELEASE_AND_RETURN(scope, JSValue::encode(numberFormat->format(globalObject, x)));
+//}
 
 JSC_DEFINE_HOST_FUNCTION(numberProtoFuncValueOf, (JSGlobalObject* globalObject, CallFrame* callFrame))
 {

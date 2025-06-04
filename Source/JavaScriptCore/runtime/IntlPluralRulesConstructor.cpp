@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlPluralRulesConstructor.h"
 
@@ -124,3 +125,4 @@ JSC_DEFINE_HOST_FUNCTION(intlPluralRulesConstructorFuncSupportedLocalesOf, (JSGl
 }
 
 } // namespace JSC
+#endif

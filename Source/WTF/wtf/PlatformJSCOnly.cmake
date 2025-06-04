@@ -20,11 +20,14 @@ if (WIN32)
         win/SignalsWin.cpp
         win/ThreadingWin.cpp
         win/Win32Handle.cpp
+        win/WTFCRTDebug.cpp
     )
     list(APPEND WTF_LIBRARIES
         DbgHelp
         shlwapi
         winmm
+        #ky, still need it?
+        #icu
     )
 else ()
     list(APPEND WTF_SOURCES
@@ -68,6 +71,9 @@ if (WIN32)
     list(APPEND WTF_SOURCES
         win/MemoryFootprintWin.cpp
         win/MemoryPressureHandlerWin.cpp
+    )
+    list(APPEND WTF_SYSTEM_INCLUDE_DIRECTORIES
+            ${WINICU_INCLUDE_DIRS}
     )
 elseif (APPLE)
     file(COPY mac/MachExceptions.defs DESTINATION ${WTF_DERIVED_SOURCES_DIR})

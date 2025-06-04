@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalPlainTimePrototype.h"
 
@@ -397,3 +398,4 @@ JSC_DEFINE_CUSTOM_GETTER(temporalPlainTimePrototypeGetterCalendar, (JSGlobalObje
 }
 
 } // namespace JSC
+#endif

@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #pragma once
 
 #include "IntlObject.h"
@@ -76,3 +77,4 @@ private:
 };
 
 } // namespace JSC
+#endif

@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #pragma once
 
 #include "ISO8601.h"
@@ -81,3 +82,4 @@ private:
 };
 
 } // namespace JSC
+#endif

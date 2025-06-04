@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlSegmentsPrototype.h"
 
@@ -99,3 +100,4 @@ JSC_DEFINE_HOST_FUNCTION(intlSegmentsPrototypeFuncIterator, (JSGlobalObject* glo
 }
 
 } // namespace JSC
+#endif

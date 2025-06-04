@@ -25,6 +25,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include "BuiltinNames.h"
 #include "IntlDateTimeFormat.h"
 #include "IntlObjectInlines.h"
@@ -39,3 +40,4 @@ inline IntlDateTimeFormat* IntlDateTimeFormat::unwrapForOldFunctions(JSGlobalObj
 }
 
 } // namespace JSC
+#endif

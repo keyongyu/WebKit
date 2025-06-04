@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlLocaleConstructor.h"
 
@@ -96,3 +97,4 @@ JSC_DEFINE_HOST_FUNCTION(callIntlLocale, (JSGlobalObject* globalObject, CallFram
 }
 
 } // namespace JSC
+#endif

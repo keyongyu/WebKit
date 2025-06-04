@@ -87,33 +87,33 @@
 #include "GlobalObjectMethodTable.h"
 #include "HeapIterationScope.h"
 #include "ImportMap.h"
-#include "IntlCollator.h"
-#include "IntlCollatorPrototype.h"
-#include "IntlDateTimeFormat.h"
-#include "IntlDateTimeFormatConstructor.h"
-#include "IntlDateTimeFormatPrototype.h"
-#include "IntlDisplayNames.h"
-#include "IntlDisplayNamesPrototype.h"
-#include "IntlDurationFormat.h"
-#include "IntlDurationFormatPrototype.h"
-#include "IntlListFormat.h"
-#include "IntlListFormatPrototype.h"
-#include "IntlLocale.h"
-#include "IntlLocalePrototype.h"
-#include "IntlNumberFormat.h"
-#include "IntlNumberFormatConstructor.h"
-#include "IntlNumberFormatPrototype.h"
-#include "IntlObject.h"
-#include "IntlPluralRules.h"
-#include "IntlPluralRulesPrototype.h"
-#include "IntlRelativeTimeFormat.h"
-#include "IntlRelativeTimeFormatPrototype.h"
-#include "IntlSegmentIterator.h"
-#include "IntlSegmentIteratorPrototype.h"
-#include "IntlSegmenter.h"
-#include "IntlSegmenterPrototype.h"
-#include "IntlSegments.h"
-#include "IntlSegmentsPrototype.h"
+//#include "IntlCollator.h"
+//#include "IntlCollatorPrototype.h"
+//#include "IntlDateTimeFormat.h"
+//#include "IntlDateTimeFormatConstructor.h"
+//#include "IntlDateTimeFormatPrototype.h"
+//#include "IntlDisplayNames.h"
+//#include "IntlDisplayNamesPrototype.h"
+//#include "IntlDurationFormat.h"
+//#include "IntlDurationFormatPrototype.h"
+//#include "IntlListFormat.h"
+//#include "IntlListFormatPrototype.h"
+//#include "IntlLocale.h"
+//#include "IntlLocalePrototype.h"
+//#include "IntlNumberFormat.h"
+//#include "IntlNumberFormatConstructor.h"
+//#include "IntlNumberFormatPrototype.h"
+//#include "IntlObject.h"
+//#include "IntlPluralRules.h"
+//#include "IntlPluralRulesPrototype.h"
+//#include "IntlRelativeTimeFormat.h"
+//#include "IntlRelativeTimeFormatPrototype.h"
+//#include "IntlSegmentIterator.h"
+//#include "IntlSegmentIteratorPrototype.h"
+//#include "IntlSegmenter.h"
+//#include "IntlSegmenterPrototype.h"
+//#include "IntlSegments.h"
+//#include "IntlSegmentsPrototype.h"
 #include "JSAPIWrapperObject.h"
 #include "JSArrayBuffer.h"
 #include "JSArrayBufferConstructor.h"
@@ -1384,158 +1384,158 @@ capitalName ## Constructor* lowerName ## Constructor = featureFlag ? capitalName
             init.set(createAccessorPropertyDescriptorObjectStructure(init.vm, *init.owner));
         });
 
-    m_collatorStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlCollatorPrototype* collatorPrototype = IntlCollatorPrototype::create(init.vm, globalObject, IntlCollatorPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlCollator::createStructure(init.vm, globalObject, collatorPrototype));
-        });
-    m_displayNamesStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlDisplayNamesPrototype* displayNamesPrototype = IntlDisplayNamesPrototype::create(init.vm, IntlDisplayNamesPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlDisplayNames::createStructure(init.vm, globalObject, displayNamesPrototype));
-        });
-    m_durationFormatStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlDurationFormatPrototype* durationFormatPrototype = IntlDurationFormatPrototype::create(init.vm, IntlDurationFormatPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlDurationFormat::createStructure(init.vm, globalObject, durationFormatPrototype));
-        });
-    m_listFormatStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlListFormatPrototype* listFormatPrototype = IntlListFormatPrototype::create(init.vm, IntlListFormatPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlListFormat::createStructure(init.vm, globalObject, listFormatPrototype));
-        });
-    m_localeStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlLocalePrototype* localePrototype = IntlLocalePrototype::create(init.vm, IntlLocalePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlLocale::createStructure(init.vm, globalObject, localePrototype));
-        });
-    m_pluralRulesStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlPluralRulesPrototype* pluralRulesPrototype = IntlPluralRulesPrototype::create(init.vm, globalObject, IntlPluralRulesPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlPluralRules::createStructure(init.vm, globalObject, pluralRulesPrototype));
-        });
-    m_relativeTimeFormatStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlRelativeTimeFormatPrototype* relativeTimeFormatPrototype = IntlRelativeTimeFormatPrototype::create(init.vm, IntlRelativeTimeFormatPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlRelativeTimeFormat::createStructure(init.vm, globalObject, relativeTimeFormatPrototype));
-        });
-    m_segmentIteratorStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlSegmentIteratorPrototype* segmentIteratorPrototype = IntlSegmentIteratorPrototype::create(init.vm, IntlSegmentIteratorPrototype::createStructure(init.vm, globalObject, globalObject->iteratorPrototype()));
-            init.set(IntlSegmentIterator::createStructure(init.vm, globalObject, segmentIteratorPrototype));
-        });
-    m_segmenterStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlSegmenterPrototype* segmenterPrototype = IntlSegmenterPrototype::create(init.vm, IntlSegmenterPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlSegmenter::createStructure(init.vm, globalObject, segmenterPrototype));
-        });
-    m_segmentsStructure.initLater(
-        [] (const Initializer<Structure>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            IntlSegmentsPrototype* segmentsPrototype = IntlSegmentsPrototype::create(init.vm, globalObject, IntlSegmentsPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-            init.set(IntlSegments::createStructure(init.vm, globalObject, segmentsPrototype));
-        });
-
-    m_dateTimeFormatStructure.initLater(
-        [] (LazyClassStructure::Initializer& init) {
-            init.setPrototype(IntlDateTimeFormatPrototype::create(init.vm, init.global, IntlDateTimeFormatPrototype::createStructure(init.vm, init.global, init.global->objectPrototype())));
-            init.setStructure(IntlDateTimeFormat::createStructure(init.vm, init.global, init.prototype));
-            init.setConstructor(IntlDateTimeFormatConstructor::create(init.vm, IntlDateTimeFormatConstructor::createStructure(init.vm, init.global, init.global->functionPrototype()), jsCast<IntlDateTimeFormatPrototype*>(init.prototype)));
-        });
-    m_numberFormatStructure.initLater(
-        [] (LazyClassStructure::Initializer& init) {
-            init.setPrototype(IntlNumberFormatPrototype::create(init.vm, init.global, IntlNumberFormatPrototype::createStructure(init.vm, init.global, init.global->objectPrototype())));
-            init.setStructure(IntlNumberFormat::createStructure(init.vm, init.global, init.prototype));
-            init.setConstructor(IntlNumberFormatConstructor::create(init.vm, IntlNumberFormatConstructor::createStructure(init.vm, init.global, init.global->functionPrototype()), jsCast<IntlNumberFormatPrototype*>(init.prototype)));
-        });
-
-    m_defaultCollator.initLater(
-        [] (const Initializer<IntlCollator>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            VM& vm = init.vm;
-            auto scope = DECLARE_THROW_SCOPE(vm);
-            IntlCollator* collator = IntlCollator::create(vm, globalObject->collatorStructure());
-            collator->initializeCollator(globalObject, jsUndefined(), jsUndefined());
-            RETURN_IF_EXCEPTION(scope, void());
-            init.set(collator);
-        });
-
-    m_defaultNumberFormat.initLater(
-        [] (const Initializer<IntlNumberFormat>& init) {
-            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-            VM& vm = init.vm;
-            auto scope = DECLARE_THROW_SCOPE(vm);
-            auto* numberFormat = IntlNumberFormat::create(vm, globalObject->numberFormatStructure());
-            numberFormat->initializeNumberFormat(globalObject, jsUndefined(), jsUndefined());
-            RETURN_IF_EXCEPTION(scope, void());
-            init.set(numberFormat);
-        });
-
-    IntlObject* intl = IntlObject::create(vm, this, IntlObject::createStructure(vm, this, m_objectPrototype.get()));
-    putDirectWithoutTransition(vm, vm.propertyNames->Intl, intl, static_cast<unsigned>(PropertyAttribute::DontEnum));
-
-    if (Options::useTemporal()) {
-        m_calendarStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                TemporalCalendarPrototype* calendarPrototype = TemporalCalendarPrototype::create(init.vm, globalObject, TemporalCalendarPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalCalendar::createStructure(init.vm, globalObject, calendarPrototype));
-            });
-
-        m_durationStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                TemporalDurationPrototype* durationPrototype = TemporalDurationPrototype::create(init.vm, TemporalDurationPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalDuration::createStructure(init.vm, globalObject, durationPrototype));
-            });
-
-        m_instantStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                TemporalInstantPrototype* instantPrototype = TemporalInstantPrototype::create(init.vm, TemporalInstantPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalInstant::createStructure(init.vm, globalObject, instantPrototype));
-            });
-
-        m_plainDateStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                auto* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                auto* plainDatePrototype = TemporalPlainDatePrototype::create(init.vm, globalObject, TemporalPlainDatePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalPlainDate::createStructure(init.vm, globalObject, plainDatePrototype));
-            });
-
-        m_plainDateTimeStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                auto* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                auto* plainDateTimePrototype = TemporalPlainDateTimePrototype::create(init.vm, globalObject, TemporalPlainDateTimePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalPlainDateTime::createStructure(init.vm, globalObject, plainDateTimePrototype));
-            });
-
-        m_plainTimeStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                auto* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                auto* plainTimePrototype = TemporalPlainTimePrototype::create(init.vm, globalObject, TemporalPlainTimePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalPlainTime::createStructure(init.vm, globalObject, plainTimePrototype));
-            });
-
-        m_timeZoneStructure.initLater(
-            [] (const Initializer<Structure>& init) {
-                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
-                TemporalTimeZonePrototype* timeZonePrototype = TemporalTimeZonePrototype::create(init.vm, globalObject, TemporalTimeZonePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
-                init.set(TemporalTimeZone::createStructure(init.vm, globalObject, timeZonePrototype));
-            });
-
-        TemporalObject* temporal = TemporalObject::create(vm, TemporalObject::createStructure(vm, this));
-        putDirectWithoutTransition(vm, vm.propertyNames->Temporal, temporal, static_cast<unsigned>(PropertyAttribute::DontEnum));
-    }
+//    m_collatorStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlCollatorPrototype* collatorPrototype = IntlCollatorPrototype::create(init.vm, globalObject, IntlCollatorPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlCollator::createStructure(init.vm, globalObject, collatorPrototype));
+//        });
+//    m_displayNamesStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlDisplayNamesPrototype* displayNamesPrototype = IntlDisplayNamesPrototype::create(init.vm, IntlDisplayNamesPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlDisplayNames::createStructure(init.vm, globalObject, displayNamesPrototype));
+//        });
+//    m_durationFormatStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlDurationFormatPrototype* durationFormatPrototype = IntlDurationFormatPrototype::create(init.vm, IntlDurationFormatPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlDurationFormat::createStructure(init.vm, globalObject, durationFormatPrototype));
+//        });
+//    m_listFormatStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlListFormatPrototype* listFormatPrototype = IntlListFormatPrototype::create(init.vm, IntlListFormatPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlListFormat::createStructure(init.vm, globalObject, listFormatPrototype));
+//        });
+//    m_localeStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlLocalePrototype* localePrototype = IntlLocalePrototype::create(init.vm, IntlLocalePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlLocale::createStructure(init.vm, globalObject, localePrototype));
+//        });
+//    m_pluralRulesStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlPluralRulesPrototype* pluralRulesPrototype = IntlPluralRulesPrototype::create(init.vm, globalObject, IntlPluralRulesPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlPluralRules::createStructure(init.vm, globalObject, pluralRulesPrototype));
+//        });
+//    m_relativeTimeFormatStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlRelativeTimeFormatPrototype* relativeTimeFormatPrototype = IntlRelativeTimeFormatPrototype::create(init.vm, IntlRelativeTimeFormatPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlRelativeTimeFormat::createStructure(init.vm, globalObject, relativeTimeFormatPrototype));
+//        });
+//    m_segmentIteratorStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlSegmentIteratorPrototype* segmentIteratorPrototype = IntlSegmentIteratorPrototype::create(init.vm, IntlSegmentIteratorPrototype::createStructure(init.vm, globalObject, globalObject->iteratorPrototype()));
+//            init.set(IntlSegmentIterator::createStructure(init.vm, globalObject, segmentIteratorPrototype));
+//        });
+//    m_segmenterStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlSegmenterPrototype* segmenterPrototype = IntlSegmenterPrototype::create(init.vm, IntlSegmenterPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlSegmenter::createStructure(init.vm, globalObject, segmenterPrototype));
+//        });
+//    m_segmentsStructure.initLater(
+//        [] (const Initializer<Structure>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            IntlSegmentsPrototype* segmentsPrototype = IntlSegmentsPrototype::create(init.vm, globalObject, IntlSegmentsPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//            init.set(IntlSegments::createStructure(init.vm, globalObject, segmentsPrototype));
+//        });
+//
+//    m_dateTimeFormatStructure.initLater(
+//        [] (LazyClassStructure::Initializer& init) {
+//            init.setPrototype(IntlDateTimeFormatPrototype::create(init.vm, init.global, IntlDateTimeFormatPrototype::createStructure(init.vm, init.global, init.global->objectPrototype())));
+//            init.setStructure(IntlDateTimeFormat::createStructure(init.vm, init.global, init.prototype));
+//            init.setConstructor(IntlDateTimeFormatConstructor::create(init.vm, IntlDateTimeFormatConstructor::createStructure(init.vm, init.global, init.global->functionPrototype()), jsCast<IntlDateTimeFormatPrototype*>(init.prototype)));
+//        });
+//    m_numberFormatStructure.initLater(
+//        [] (LazyClassStructure::Initializer& init) {
+//            init.setPrototype(IntlNumberFormatPrototype::create(init.vm, init.global, IntlNumberFormatPrototype::createStructure(init.vm, init.global, init.global->objectPrototype())));
+//            init.setStructure(IntlNumberFormat::createStructure(init.vm, init.global, init.prototype));
+//            init.setConstructor(IntlNumberFormatConstructor::create(init.vm, IntlNumberFormatConstructor::createStructure(init.vm, init.global, init.global->functionPrototype()), jsCast<IntlNumberFormatPrototype*>(init.prototype)));
+//        });
+//
+//    m_defaultCollator.initLater(
+//        [] (const Initializer<IntlCollator>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            VM& vm = init.vm;
+//            auto scope = DECLARE_THROW_SCOPE(vm);
+//            IntlCollator* collator = IntlCollator::create(vm, globalObject->collatorStructure());
+//            collator->initializeCollator(globalObject, jsUndefined(), jsUndefined());
+//            RETURN_IF_EXCEPTION(scope, void());
+//            init.set(collator);
+//        });
+//
+//    m_defaultNumberFormat.initLater(
+//        [] (const Initializer<IntlNumberFormat>& init) {
+//            JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//            VM& vm = init.vm;
+//            auto scope = DECLARE_THROW_SCOPE(vm);
+//            auto* numberFormat = IntlNumberFormat::create(vm, globalObject->numberFormatStructure());
+//            numberFormat->initializeNumberFormat(globalObject, jsUndefined(), jsUndefined());
+//            RETURN_IF_EXCEPTION(scope, void());
+//            init.set(numberFormat);
+//        });
+//
+//    IntlObject* intl = IntlObject::create(vm, this, IntlObject::createStructure(vm, this, m_objectPrototype.get()));
+//    putDirectWithoutTransition(vm, vm.propertyNames->Intl, intl, static_cast<unsigned>(PropertyAttribute::DontEnum));
+//
+//    if (Options::useTemporal()) {
+//        m_calendarStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                TemporalCalendarPrototype* calendarPrototype = TemporalCalendarPrototype::create(init.vm, globalObject, TemporalCalendarPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalCalendar::createStructure(init.vm, globalObject, calendarPrototype));
+//            });
+//
+//        m_durationStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                TemporalDurationPrototype* durationPrototype = TemporalDurationPrototype::create(init.vm, TemporalDurationPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalDuration::createStructure(init.vm, globalObject, durationPrototype));
+//            });
+//
+//        m_instantStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                TemporalInstantPrototype* instantPrototype = TemporalInstantPrototype::create(init.vm, TemporalInstantPrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalInstant::createStructure(init.vm, globalObject, instantPrototype));
+//            });
+//
+//        m_plainDateStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                auto* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                auto* plainDatePrototype = TemporalPlainDatePrototype::create(init.vm, globalObject, TemporalPlainDatePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalPlainDate::createStructure(init.vm, globalObject, plainDatePrototype));
+//            });
+//
+//        m_plainDateTimeStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                auto* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                auto* plainDateTimePrototype = TemporalPlainDateTimePrototype::create(init.vm, globalObject, TemporalPlainDateTimePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalPlainDateTime::createStructure(init.vm, globalObject, plainDateTimePrototype));
+//            });
+//
+//        m_plainTimeStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                auto* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                auto* plainTimePrototype = TemporalPlainTimePrototype::create(init.vm, globalObject, TemporalPlainTimePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalPlainTime::createStructure(init.vm, globalObject, plainTimePrototype));
+//            });
+//
+//        m_timeZoneStructure.initLater(
+//            [] (const Initializer<Structure>& init) {
+//                JSGlobalObject* globalObject = jsCast<JSGlobalObject*>(init.owner);
+//                TemporalTimeZonePrototype* timeZonePrototype = TemporalTimeZonePrototype::create(init.vm, globalObject, TemporalTimeZonePrototype::createStructure(init.vm, globalObject, globalObject->objectPrototype()));
+//                init.set(TemporalTimeZone::createStructure(init.vm, globalObject, timeZonePrototype));
+//            });
+//
+//        TemporalObject* temporal = TemporalObject::create(vm, TemporalObject::createStructure(vm, this));
+//        putDirectWithoutTransition(vm, vm.propertyNames->Temporal, temporal, static_cast<unsigned>(PropertyAttribute::DontEnum));
+//    }
     if (Options::useShadowRealm())
         putDirectWithoutTransition(vm, vm.propertyNames->ShadowRealm, shadowRealmConstructor, static_cast<unsigned>(PropertyAttribute::DontEnum));
 
@@ -2663,28 +2663,28 @@ void JSGlobalObject::visitChildrenImpl(JSCell* cell, Visitor& visitor)
     visitor.append(thisObject->m_internalPromiseConstructor);
     visitor.append(thisObject->m_stringConstructor);
 
-    thisObject->m_defaultCollator.visit(visitor);
-    thisObject->m_defaultNumberFormat.visit(visitor);
-    thisObject->m_collatorStructure.visit(visitor);
-    thisObject->m_displayNamesStructure.visit(visitor);
-    thisObject->m_durationFormatStructure.visit(visitor);
-    thisObject->m_listFormatStructure.visit(visitor);
-    thisObject->m_localeStructure.visit(visitor);
-    thisObject->m_pluralRulesStructure.visit(visitor);
-    thisObject->m_relativeTimeFormatStructure.visit(visitor);
-    thisObject->m_segmentIteratorStructure.visit(visitor);
-    thisObject->m_segmenterStructure.visit(visitor);
-    thisObject->m_segmentsStructure.visit(visitor);
-    thisObject->m_dateTimeFormatStructure.visit(visitor);
-    thisObject->m_numberFormatStructure.visit(visitor);
+//    thisObject->m_defaultCollator.visit(visitor);
+//    thisObject->m_defaultNumberFormat.visit(visitor);
+//    thisObject->m_collatorStructure.visit(visitor);
+//    thisObject->m_displayNamesStructure.visit(visitor);
+//    thisObject->m_durationFormatStructure.visit(visitor);
+//    thisObject->m_listFormatStructure.visit(visitor);
+//    thisObject->m_localeStructure.visit(visitor);
+//    thisObject->m_pluralRulesStructure.visit(visitor);
+//    thisObject->m_relativeTimeFormatStructure.visit(visitor);
+//    thisObject->m_segmentIteratorStructure.visit(visitor);
+//    thisObject->m_segmenterStructure.visit(visitor);
+//    thisObject->m_segmentsStructure.visit(visitor);
+//    thisObject->m_dateTimeFormatStructure.visit(visitor);
+//    thisObject->m_numberFormatStructure.visit(visitor);
 
-    thisObject->m_calendarStructure.visit(visitor);
-    thisObject->m_durationStructure.visit(visitor);
-    thisObject->m_instantStructure.visit(visitor);
-    thisObject->m_plainDateStructure.visit(visitor);
-    thisObject->m_plainDateTimeStructure.visit(visitor);
-    thisObject->m_plainTimeStructure.visit(visitor);
-    thisObject->m_timeZoneStructure.visit(visitor);
+//    thisObject->m_calendarStructure.visit(visitor);
+//    thisObject->m_durationStructure.visit(visitor);
+//    thisObject->m_instantStructure.visit(visitor);
+//    thisObject->m_plainDateStructure.visit(visitor);
+//    thisObject->m_plainDateTimeStructure.visit(visitor);
+//    thisObject->m_plainTimeStructure.visit(visitor);
+//    thisObject->m_timeZoneStructure.visit(visitor);
 
     visitor.append(thisObject->m_nullGetterFunction);
     visitor.append(thisObject->m_nullSetterFunction);

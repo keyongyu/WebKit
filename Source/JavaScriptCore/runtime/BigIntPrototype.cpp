@@ -39,7 +39,7 @@
 namespace JSC {
 
 static JSC_DECLARE_HOST_FUNCTION(bigIntProtoFuncToString);
-static JSC_DECLARE_HOST_FUNCTION(bigIntProtoFuncToLocaleString);
+//static JSC_DECLARE_HOST_FUNCTION(bigIntProtoFuncToLocaleString);
 static JSC_DECLARE_HOST_FUNCTION(bigIntProtoFuncValueOf);
 
 }
@@ -53,7 +53,6 @@ const ClassInfo BigIntPrototype::s_info = { "BigInt"_s, &Base::s_info, &bigIntPr
 /* Source for BigIntPrototype.lut.h
 @begin bigIntPrototypeTable
   toString          bigIntProtoFuncToString         DontEnum|Function 0
-  toLocaleString    bigIntProtoFuncToLocaleString   DontEnum|Function 0
   valueOf           bigIntProtoFuncValueOf          DontEnum|Function 0
 @end
 */
@@ -126,27 +125,27 @@ JSC_DEFINE_HOST_FUNCTION(bigIntProtoFuncToString, (JSGlobalObject* globalObject,
     return JSValue::encode(jsNontrivialString(vm, resultString));
 }
 
-// FIXME: this function should introduce the right separators for thousands and similar things.
-JSC_DEFINE_HOST_FUNCTION(bigIntProtoFuncToLocaleString, (JSGlobalObject* globalObject, CallFrame* callFrame))
-{
-    VM& vm = globalObject->vm();
-    auto scope = DECLARE_THROW_SCOPE(vm);
-
-    JSBigInt* thisValue = toThisBigIntValue(globalObject, callFrame->thisValue());
-    RETURN_IF_EXCEPTION(scope, { });
-
-    auto* numberFormat = IntlNumberFormat::create(vm, globalObject->numberFormatStructure());
-    numberFormat->initializeNumberFormat(globalObject, callFrame->argument(0), callFrame->argument(1));
-    RETURN_IF_EXCEPTION(scope, { });
-
-    auto value = toIntlMathematicalValue(globalObject, thisValue);
-    RETURN_IF_EXCEPTION(scope, { });
-
-    if (auto number = value.tryGetDouble())
-        RELEASE_AND_RETURN(scope, JSValue::encode(numberFormat->format(globalObject, number.value())));
-
-    RELEASE_AND_RETURN(scope, JSValue::encode(numberFormat->format(globalObject, WTFMove(value))));
-}
+//// FIXME: this function should introduce the right separators for thousands and similar things.
+//JSC_DEFINE_HOST_FUNCTION(bigIntProtoFuncToLocaleString, (JSGlobalObject* globalObject, CallFrame* callFrame))
+//{
+//    VM& vm = globalObject->vm();
+//    auto scope = DECLARE_THROW_SCOPE(vm);
+//
+//    JSBigInt* thisValue = toThisBigIntValue(globalObject, callFrame->thisValue());
+//    RETURN_IF_EXCEPTION(scope, { });
+//
+//    auto* numberFormat = IntlNumberFormat::create(vm, globalObject->numberFormatStructure());
+//    numberFormat->initializeNumberFormat(globalObject, callFrame->argument(0), callFrame->argument(1));
+//    RETURN_IF_EXCEPTION(scope, { });
+//
+//    auto value = toIntlMathematicalValue(globalObject, thisValue);
+//    RETURN_IF_EXCEPTION(scope, { });
+//
+//    if (auto number = value.tryGetDouble())
+//        RELEASE_AND_RETURN(scope, JSValue::encode(numberFormat->format(globalObject, number.value())));
+//
+//    RELEASE_AND_RETURN(scope, JSValue::encode(numberFormat->format(globalObject, WTFMove(value))));
+//}
 
 JSC_DEFINE_HOST_FUNCTION(bigIntProtoFuncValueOf, (JSGlobalObject* globalObject, CallFrame* callFrame))
 {

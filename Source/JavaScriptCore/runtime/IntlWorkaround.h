@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #pragma once
 
 #include <unicode/utypes.h>
@@ -34,3 +35,4 @@ namespace JSC {
 UBreakIterator* cloneUBreakIterator(const UBreakIterator*, UErrorCode*);
 
 } // namespace JSC
+#endif

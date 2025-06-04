@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDurationFormat.h"
 
 #include "IntlNumberFormatInlines.h"
@@ -908,3 +909,4 @@ ASCIILiteral IntlDurationFormat::displayString(Display display)
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

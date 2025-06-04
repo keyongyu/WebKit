@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlSegmentIterator.h"
 
@@ -83,3 +84,4 @@ JSObject* IntlSegmentIterator::next(JSGlobalObject* globalObject)
 }
 
 } // namespace JSC
+#endif

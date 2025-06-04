@@ -3093,7 +3093,9 @@ JSC_DEFINE_JIT_OPERATION(operationToLowerCase, JSString*, (JSGlobalObject* globa
         OPERATION_RETURN(scope, string);
     OPERATION_RETURN(scope, jsString(vm, WTFMove(lowercasedString)));
 }
-
+constexpr int ordering_to_int(std::strong_ordering cmp) noexcept {
+    return (cmp < 0) ? -1 : ((cmp == 0) ? 0 : 1);
+}
 JSC_DEFINE_JIT_OPERATION(operationStringLocaleCompare, UCPUStrictInt32, (JSGlobalObject* globalObject, JSString* base, JSString* argument))
 {
     VM& vm = globalObject->vm();
@@ -3107,10 +3109,11 @@ JSC_DEFINE_JIT_OPERATION(operationStringLocaleCompare, UCPUStrictInt32, (JSGloba
 
     auto that = argument->value(globalObject);
     OPERATION_RETURN_IF_EXCEPTION(scope, 0);
+    //auto* collator = globalObject->defaultCollator();
 
-    auto* collator = globalObject->defaultCollator();
-
-    OPERATION_RETURN(scope, toUCPUStrictInt32(collator->compareStrings(globalObject, string, that)));
+    //OPERATION_RETURN(scope, toUCPUStrictInt32(collator->compareStrings(globalObject, string, that)));
+    OPERATION_RETURN(scope, toUCPUStrictInt32(ordering_to_int(WTF::codePointCompare((const StringView&)string, (const StringView&)that))));
+    //return WTF::codePointCompare(string, that);
 }
 
 JSC_DEFINE_JIT_OPERATION(operationStringIndexOf, UCPUStrictInt32, (JSGlobalObject* globalObject, JSString* base, JSString* argument))

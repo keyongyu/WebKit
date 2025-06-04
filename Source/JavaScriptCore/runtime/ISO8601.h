@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #pragma once
 
 #include "IntlObject.h"
@@ -329,3 +330,4 @@ bool isYearWithinLimits(double year);
 
 } // namespace ISO8601
 } // namespace JSC
+#endif

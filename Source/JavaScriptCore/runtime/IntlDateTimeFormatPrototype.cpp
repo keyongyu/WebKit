@@ -25,6 +25,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDateTimeFormatPrototype.h"
 
 #include "BuiltinNames.h"
@@ -245,3 +246,4 @@ JSC_DEFINE_HOST_FUNCTION(intlDateTimeFormatPrototypeFuncResolvedOptions, (JSGlob
 }
 
 } // namespace JSC
+#endif

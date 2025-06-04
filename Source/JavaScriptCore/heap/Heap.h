@@ -241,18 +241,6 @@ class Heap;
     v(int8ArraySpace, cellHeapCellType, JSInt8Array) \
     v(int16ArraySpace, cellHeapCellType, JSInt16Array) \
     v(int32ArraySpace, cellHeapCellType, JSInt32Array) \
-    v(intlCollatorSpace, intlCollatorHeapCellType, IntlCollator) \
-    v(intlDateTimeFormatSpace, intlDateTimeFormatHeapCellType, IntlDateTimeFormat) \
-    v(intlDisplayNamesSpace, intlDisplayNamesHeapCellType, IntlDisplayNames) \
-    v(intlDurationFormatSpace, intlDurationFormatHeapCellType, IntlDurationFormat) \
-    v(intlListFormatSpace, intlListFormatHeapCellType, IntlListFormat) \
-    v(intlLocaleSpace, intlLocaleHeapCellType, IntlLocale) \
-    v(intlNumberFormatSpace, intlNumberFormatHeapCellType, IntlNumberFormat) \
-    v(intlPluralRulesSpace, intlPluralRulesHeapCellType, IntlPluralRules) \
-    v(intlRelativeTimeFormatSpace, intlRelativeTimeFormatHeapCellType, IntlRelativeTimeFormat) \
-    v(intlSegmentIteratorSpace, intlSegmentIteratorHeapCellType, IntlSegmentIterator) \
-    v(intlSegmenterSpace, intlSegmenterHeapCellType, IntlSegmenter) \
-    v(intlSegmentsSpace, intlSegmentsHeapCellType, IntlSegments) \
     v(iteratorHelperSpace, cellHeapCellType, JSIteratorHelper) \
     v(javaScriptCallFrameSpace, javaScriptCallFrameHeapCellType, Inspector::JSJavaScriptCallFrame) \
     v(jsModuleRecordSpace, jsModuleRecordHeapCellType, JSModuleRecord) \
@@ -277,13 +265,6 @@ class Heap;
     v(symbolSpace, destructibleCellHeapCellType, Symbol) \
     v(symbolObjectSpace, cellHeapCellType, SymbolObject) \
     v(templateObjectDescriptorSpace, destructibleCellHeapCellType, JSTemplateObjectDescriptor) \
-    v(temporalCalendarSpace, cellHeapCellType, TemporalCalendar) \
-    v(temporalDurationSpace, cellHeapCellType, TemporalDuration) \
-    v(temporalInstantSpace, cellHeapCellType, TemporalInstant) \
-    v(temporalPlainDateSpace, cellHeapCellType, TemporalPlainDate) \
-    v(temporalPlainDateTimeSpace, cellHeapCellType, TemporalPlainDateTime) \
-    v(temporalPlainTimeSpace, cellHeapCellType, TemporalPlainTime) \
-    v(temporalTimeZoneSpace, cellHeapCellType, TemporalTimeZone) \
     v(uint8ArraySpace, cellHeapCellType, JSUint8Array) \
     v(uint8ClampedArraySpace, cellHeapCellType, JSUint8ClampedArray) \
     v(uint16ArraySpace, cellHeapCellType, JSUint16Array) \
@@ -1031,18 +1012,18 @@ public:
     IsoHeapCellType callbackAPIWrapperGlobalObjectHeapCellType;
     IsoHeapCellType jscCallbackFunctionHeapCellType;
 #endif
-    IsoHeapCellType intlCollatorHeapCellType;
-    IsoHeapCellType intlDateTimeFormatHeapCellType;
-    IsoHeapCellType intlDisplayNamesHeapCellType;
-    IsoHeapCellType intlDurationFormatHeapCellType;
-    IsoHeapCellType intlListFormatHeapCellType;
-    IsoHeapCellType intlLocaleHeapCellType;
-    IsoHeapCellType intlNumberFormatHeapCellType;
-    IsoHeapCellType intlPluralRulesHeapCellType;
-    IsoHeapCellType intlRelativeTimeFormatHeapCellType;
-    IsoHeapCellType intlSegmentIteratorHeapCellType;
-    IsoHeapCellType intlSegmenterHeapCellType;
-    IsoHeapCellType intlSegmentsHeapCellType;
+//    IsoHeapCellType intlCollatorHeapCellType;
+//    IsoHeapCellType intlDateTimeFormatHeapCellType;
+//    IsoHeapCellType intlDisplayNamesHeapCellType;
+//    IsoHeapCellType intlDurationFormatHeapCellType;
+//    IsoHeapCellType intlListFormatHeapCellType;
+//    IsoHeapCellType intlLocaleHeapCellType;
+//    IsoHeapCellType intlNumberFormatHeapCellType;
+//    IsoHeapCellType intlPluralRulesHeapCellType;
+//    IsoHeapCellType intlRelativeTimeFormatHeapCellType;
+//    IsoHeapCellType intlSegmentIteratorHeapCellType;
+//    IsoHeapCellType intlSegmenterHeapCellType;
+//    IsoHeapCellType intlSegmentsHeapCellType;
 #if ENABLE(WEBASSEMBLY)
     IsoHeapCellType webAssemblyArrayHeapCellType;
     IsoHeapCellType webAssemblyExceptionHeapCellType;

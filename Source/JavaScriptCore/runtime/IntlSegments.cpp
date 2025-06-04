@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlSegments.h"
 
@@ -115,3 +116,4 @@ void IntlSegments::visitChildrenImpl(JSCell* cell, Visitor& visitor)
 DEFINE_VISIT_CHILDREN(IntlSegments);
 
 } // namespace JSC
+#endif

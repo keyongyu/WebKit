@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlPluralRules.h"
 
@@ -290,3 +291,4 @@ JSValue IntlPluralRules::selectRange(JSGlobalObject* globalObject, double start,
 }
 
 } // namespace JSC
+#endif

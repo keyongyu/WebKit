@@ -23,7 +23,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
-
+#ifdef ENABLE_INTL 
 #include "config.h"
 #include "TemporalCalendar.h"
 
@@ -445,3 +445,4 @@ bool TemporalCalendar::equals(JSGlobalObject* globalObject, TemporalCalendar* ot
 }
 
 } // namespace JSC
+#endif

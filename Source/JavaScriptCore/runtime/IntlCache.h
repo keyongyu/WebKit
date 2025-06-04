@@ -25,6 +25,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include <unicode/udatpg.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/TZoneMalloc.h>
@@ -59,3 +60,4 @@ private:
 };
 
 } // namespace JSC
+#endif

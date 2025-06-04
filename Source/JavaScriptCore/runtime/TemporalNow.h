@@ -18,6 +18,7 @@
  *
  */
 
+#ifdef ENABLE_INTL
 #pragma once
 
 #include "JSObject.h"
@@ -47,3 +48,4 @@ private:
 };
 
 } // namespace JSC
+#endif

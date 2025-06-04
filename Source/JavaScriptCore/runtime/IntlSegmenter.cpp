@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlSegmenter.h"
 
@@ -179,3 +180,4 @@ JSObject* IntlSegmenter::createSegmentDataObject(JSGlobalObject* globalObject, J
 }
 
 } // namespace JSC
+#endif

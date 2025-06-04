@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlWorkaround.h"
 
@@ -40,3 +41,4 @@ UBreakIterator* cloneUBreakIterator(const UBreakIterator* iterator, UErrorCode* 
 }
 
 } // namespace JSC
+#endif

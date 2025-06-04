@@ -18,6 +18,7 @@
  *
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalNow.h"
 
@@ -89,3 +90,4 @@ JSC_DEFINE_HOST_FUNCTION(temporalNowFuncTimeZoneId, (JSGlobalObject* globalObjec
 }
 
 } // namespace JSC
+#endif

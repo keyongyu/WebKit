@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #pragma once
 
 #include "InternalFunction.h"
@@ -49,3 +50,4 @@ private:
 STATIC_ASSERT_ISO_SUBSPACE_SHARABLE(IntlSegmenterConstructor, InternalFunction);
 
 } // namespace JSC
+#endif

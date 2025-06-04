@@ -119,6 +119,53 @@ Tools/Scripts/build-webkit --wpe --debug
 
 For building WebKit on Windows, see the [WebKit on Windows page](https://docs.webkit.org/Ports/WindowsPort.html).
 
+
+### Building Windows and jsc Port
+install software
+```
+sudo winget install --scope=machine --id Git.Git Kitware.CMake Ninja-build.Ninja Python.Python.3.11 RubyInstallerTeam.Ruby.3.2 ApacheFriends.Xampp.8.2 LLVM.LLVM
+winget install --id GnuWin32.Gperf
+python -m pip install pywin32
+git config --global core.autocrlf input
+```
+create build env:
+```
+$env:path="c:\xampp\apache\bin;"+$env:path
+$env:path="c:\xampp\perl\bin;"+$env:path
+$env:path="${env:ProgramFiles}\CMake\bin;"+$env:path
+$env:path="${env:ProgramFiles}\LLVM\bin;"+$env:path
+$env:path="${env:ProgramFiles(x86)}\GnuWin32\bin;"+$env:path
+$workdir="${env:USERPROFILE}\source\repos\webkit"
+$env:path="${workdir}\WebKitLibraries\win\bin;"+$env:path
+
+$env:WEBKIT_TESTFONTS="${workdir}\Tools\WebKitTestRunner\fonts"
+$env:DUMPRENDERTREE_TEMP="${env:TEMP}"
+
+$env:CC="clang-cl"
+$env:CXX="clang-cl"
+#set JSC_useJIT=0
+
+```
+execute above script in powershell
+then get required libraries
+```
+perl Tools/Scripts/build-webkit --release
+python Tools\Scripts\update-webkit-win-libs.py
+perl Tools\Scripts\build-webkit --release --skip-library-update
+```
+final: run command 
+```
+perl Tools\Scripts\build-webkit --no-experimental-features --jsc-only --release --skip-library-update --cmakeargs="-DENABLE_STATIC_JSC=ON -DENABLE_JIT=OFF  -DENABLE_REMOTE_INSPECTOR=ON -DUSE_INSPECTOR_SOCKET_SERVER=ON"
+```
+or 
+```
+cmake -S . -B xxx -DPORT=JSCOnly -DCMAKE_BUILD_TYPE=Release -G Ninja -DENABLE_STATIC_JSC=ON -DENABLE_JIT=OFF -DENABLE_REMOTE_INSPECTOR=ON -DUSE_INSPECTOR_SOCKET_SERVER=1 
+cd xxx
+cmake --build .
+```
+or use vs2022 to open this webkit folder, let vs2022 use "CMakePresets.json" to build/debug jsc.exe
+
+![visual studio 2022](vs2022.png)
 ## Running WebKit
 
 ### With Safari and Other macOS Applications

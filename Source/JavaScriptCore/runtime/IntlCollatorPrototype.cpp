@@ -25,6 +25,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlCollatorPrototype.h"
 
 #include "IntlCollator.h"
@@ -153,3 +154,4 @@ JSC_DEFINE_HOST_FUNCTION(intlCollatorPrototypeFuncResolvedOptions, (JSGlobalObje
 }
 
 } // namespace JSC
+#endif

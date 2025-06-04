@@ -35,7 +35,7 @@ if (ENABLE_TOOLS)
 endif ()
 
 if (DEVELOPER_MODE)
-    add_subdirectory(PerformanceTests)
+    #add_subdirectory(PerformanceTests)
 endif ()
 
 # -----------------------------------------------------------------------------

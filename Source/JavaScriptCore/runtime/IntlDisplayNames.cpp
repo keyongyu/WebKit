@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDisplayNames.h"
 
 #include "IntlCache.h"
@@ -423,3 +424,4 @@ ASCIILiteral IntlDisplayNames::languageDisplayString(LanguageDisplay languageDis
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

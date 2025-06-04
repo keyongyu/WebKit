@@ -26,6 +26,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include "IntlObject.h"
 #include <unicode/ucol.h>
 #include <wtf/unicode/icu/ICUHelpers.h>
@@ -112,3 +113,4 @@ private:
 };
 
 } // namespace JSC
+#endif

@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDisplayNamesConstructor.h"
 
 #include "IntlDisplayNames.h"
@@ -124,3 +125,4 @@ JSC_DEFINE_HOST_FUNCTION(intlDisplayNamesConstructorSupportedLocalesOf, (JSGloba
 
 
 } // namespace JSC
+#endif

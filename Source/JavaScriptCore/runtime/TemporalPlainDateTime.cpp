@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalPlainDateTime.h"
 
@@ -364,3 +365,4 @@ TemporalPlainDateTime* TemporalPlainDateTime::round(JSGlobalObject* globalObject
 }
 
 } // namespace JSC
+#endif

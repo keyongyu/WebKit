@@ -22,7 +22,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
-
+#ifdef ENABLE_INTL
 #pragma once
 
 #include "JSObject.h"
@@ -52,3 +52,4 @@ private:
 };
 
 } // namespace JSC
+#endif

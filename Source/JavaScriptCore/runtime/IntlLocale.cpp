@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlLocale.h"
 
@@ -886,3 +887,4 @@ JSObject* IntlLocale::weekInfo(JSGlobalObject* globalObject)
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

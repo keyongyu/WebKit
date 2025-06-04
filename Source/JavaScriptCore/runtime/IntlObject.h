@@ -25,6 +25,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #pragma once
 
 #include "JSCJSValueInlines.h"
@@ -179,3 +180,4 @@ inline CalendarID utcTimeZoneID()
 }
 
 } // namespace JSC
+#endif

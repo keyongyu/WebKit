@@ -685,6 +685,7 @@ if (WIN32)
         win/PathWalker.h
         win/SoftLinking.h
         win/Win32Handle.h
+        win/WTFCRTDebug.h
     )
 elseif (APPLE)
     list(APPEND WTF_SOURCES
@@ -759,9 +760,10 @@ set(WTF_PRIVATE_INCLUDE_DIRECTORIES
 
 set(WTF_LIBRARIES
     ${CMAKE_DL_LIBS}
-    ICU::data
-    ICU::i18n
-    ICU::uc
+    #KY 
+    WINICU::all
+    #ICU::i18n
+    #ICU::uc
 )
 
 if (NOT USE_SYSTEM_MALLOC)

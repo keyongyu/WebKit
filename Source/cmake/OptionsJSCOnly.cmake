@@ -96,10 +96,14 @@ else ()
     SET_AND_EXPOSE_TO_BUILD(WTF_DEFAULT_EVENT_LOOP 0)
 endif ()
 
-find_package(ICU 70.1 REQUIRED COMPONENTS data i18n uc)
-if (APPLE)
-    add_definitions(-DU_DISABLE_RENAMING=1)
-endif ()
+find_package(WINICU 67 REQUIRED COMPONENTS all)
+#add_definitions(-DU_DISABLE_RENAMING=1)
+#if (APPLE)
+#add_definitions(-DU_DISABLE_RENAMING=1)
+#endif ()
+
+
+
 
 if (USE_LIBBACKTRACE)
     find_package(LibBacktrace)

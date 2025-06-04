@@ -25,6 +25,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include "ISO8601.h"
 #include "IntlListFormat.h"
 #include "IntlNumberFormat.h"
@@ -111,3 +112,4 @@ private:
 };
 
 } // namespace JSC
+#endif

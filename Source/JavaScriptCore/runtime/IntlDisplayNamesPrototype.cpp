@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDisplayNamesPrototype.h"
 
 #include "IntlDisplayNames.h"
@@ -100,3 +101,4 @@ JSC_DEFINE_HOST_FUNCTION(intlDisplayNamesPrototypeFuncResolvedOptions, (JSGlobal
 }
 
 } // namespace JSC
+#endif

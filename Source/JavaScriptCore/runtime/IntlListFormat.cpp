@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlListFormat.h"
 
 #include "IntlObjectInlines.h"
@@ -313,3 +314,4 @@ ASCIILiteral IntlListFormat::typeString(Type type)
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

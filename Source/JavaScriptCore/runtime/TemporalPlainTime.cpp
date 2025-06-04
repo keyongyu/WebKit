@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalPlainTime.h"
 
@@ -575,3 +576,4 @@ ISO8601::Duration TemporalPlainTime::since(JSGlobalObject* globalObject, Tempora
 }
 
 } // namespace JSC
+#endif

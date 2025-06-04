@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlListFormatConstructor.h"
 
 #include "IntlListFormat.h"
@@ -124,3 +125,4 @@ JSC_DEFINE_HOST_FUNCTION(intlListFormatConstructorSupportedLocalesOf, (JSGlobalO
 
 
 } // namespace JSC
+#endif

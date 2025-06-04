@@ -55,6 +55,7 @@
 #endif
 
 #if OS(WINDOWS)
+#include <winsock2.h>
 #include <windows.h>
 #endif
 

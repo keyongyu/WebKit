@@ -25,6 +25,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDateTimeFormat.h"
 
 #include "ISO8601.h"
@@ -1797,3 +1798,4 @@ JSValue IntlDateTimeFormat::formatRangeToParts(JSGlobalObject* globalObject, dou
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

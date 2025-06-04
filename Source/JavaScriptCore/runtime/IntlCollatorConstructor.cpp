@@ -26,6 +26,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlCollatorConstructor.h"
 
 #include "IntlCollator.h"
@@ -138,3 +139,4 @@ JSC_DEFINE_HOST_FUNCTION(intlCollatorConstructorFuncSupportedLocalesOf, (JSGloba
 }
 
 } // namespace JSC
+#endif

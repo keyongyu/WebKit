@@ -130,7 +130,7 @@ class FuzzerAgent;
 class HasOwnPropertyCache;
 class HeapAnalyzer;
 class HeapProfiler;
-class IntlCache;
+//class IntlCache;
 class JSDestructibleObjectHeapCellType;
 class JSGlobalObject;
 class JSObject;
@@ -826,7 +826,7 @@ public:
 
     JSLock& apiLock() { return m_apiLock.get(); }
     CodeCache* codeCache() { return m_codeCache.get(); }
-    IntlCache& intlCache() { return *m_intlCache; }
+//    IntlCache& intlCache() { return *m_intlCache; }
 
     JS_EXPORT_PRIVATE void whenIdle(Function<void()>&&);
 
@@ -1063,7 +1063,7 @@ private:
     DeletePropertyMode m_deletePropertyMode { DeletePropertyMode::Default };
     HeapAnalyzer* m_activeHeapAnalyzer { nullptr };
     std::unique_ptr<CodeCache> m_codeCache;
-    std::unique_ptr<IntlCache> m_intlCache;
+//    std::unique_ptr<IntlCache> m_intlCache;
     std::unique_ptr<BuiltinExecutables> m_builtinExecutables;
     UncheckedKeyHashMap<RefPtr<UniquedStringImpl>, RefPtr<WatchpointSet>> m_impurePropertyWatchpointSets;
     std::unique_ptr<TypeProfiler> m_typeProfiler;

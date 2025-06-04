@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalInstantConstructor.h"
 
@@ -128,3 +129,4 @@ JSC_DEFINE_HOST_FUNCTION(temporalInstantConstructorFuncCompare, (JSGlobalObject*
 }
 
 } // namespace JSC
+#endif

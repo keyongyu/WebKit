@@ -116,7 +116,7 @@ void OpaqueICUTimeZoneDeleter::operator()(OpaqueICUTimeZone* timeZone)
 // NOTE: The implementation relies on the fact that no time zones have
 // more than one daylight savings offset change per month.
 // If this function is called with NaN it returns random value.
-LocalTimeOffset DateCache::calculateLocalTimeOffset(double millisecondsFromEpoch, WTF::TimeType inputTimeType)
+LocalTimeOffset DateCache::calculateLocalTimeOffset(double millisecondsFromEpoch, WTF::TimeType /*inputTimeType*/)
 {
     int32_t rawOffset = 0;
     int32_t dstOffset = 0;
@@ -131,18 +131,18 @@ LocalTimeOffset DateCache::calculateLocalTimeOffset(double millisecondsFromEpoch
     if (U_FAILURE(status))
         return failed;
 
-    if (inputTimeType != WTF::LocalTime) {
+    //if (inputTimeType != WTF::LocalTime) {
         rawOffset = ucal_get(timeZoneCache.m_calendar.get(), UCAL_ZONE_OFFSET, &status);
         if (U_FAILURE(status))
             return failed;
         dstOffset = ucal_get(timeZoneCache.m_calendar.get(), UCAL_DST_OFFSET, &status);
         if (U_FAILURE(status))
             return failed;
-    } else {
-        ucal_getTimeZoneOffsetFromLocal(timeZoneCache.m_calendar.get(), UCAL_TZ_LOCAL_FORMER, UCAL_TZ_LOCAL_FORMER, &rawOffset, &dstOffset, &status);
-        if (U_FAILURE(status))
-            return failed;
-    }
+    //} else {
+    //    ucal_getTimeZoneOffsetFromLocal(timeZoneCache.m_calendar.get(), UCAL_TZ_LOCAL_FORMER, UCAL_TZ_LOCAL_FORMER, &rawOffset, &dstOffset, &status);
+    //    if (U_FAILURE(status))
+    //        return failed;
+    //}
 
     return { !!dstOffset, rawOffset + dstOffset };
 }

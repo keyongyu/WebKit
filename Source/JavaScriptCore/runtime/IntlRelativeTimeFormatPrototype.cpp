@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENBLE_INTL
 #include "config.h"
 #include "IntlRelativeTimeFormatPrototype.h"
 
@@ -128,3 +129,4 @@ JSC_DEFINE_HOST_FUNCTION(intlRelativeTimeFormatPrototypeFuncResolvedOptions, (JS
 }
 
 } // namespace JSC
+#endif

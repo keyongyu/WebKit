@@ -24,6 +24,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalPlainDate.h"
 
@@ -408,3 +409,4 @@ uint8_t TemporalPlainDate::weekOfYear() const
 }
 
 } // namespace JSC
+#endif

@@ -26,6 +26,7 @@
 
 #pragma once
 
+#ifdef ENBLE_INTL
 #include "JSObject.h"
 
 namespace JSC {
@@ -53,3 +54,4 @@ private:
 };
 
 } // namespace JSC
+#endif

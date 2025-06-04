@@ -252,28 +252,28 @@ public:
     WriteBarrier<JSIteratorConstructor> m_iteratorConstructor;
     WriteBarrier<StringConstructor> m_stringConstructor;
 
-    LazyProperty<JSGlobalObject, IntlCollator> m_defaultCollator;
-    LazyProperty<JSGlobalObject, IntlNumberFormat> m_defaultNumberFormat;
-    LazyProperty<JSGlobalObject, Structure> m_collatorStructure;
-    LazyProperty<JSGlobalObject, Structure> m_displayNamesStructure;
-    LazyProperty<JSGlobalObject, Structure> m_durationFormatStructure;
-    LazyProperty<JSGlobalObject, Structure> m_listFormatStructure;
-    LazyProperty<JSGlobalObject, Structure> m_localeStructure;
-    LazyProperty<JSGlobalObject, Structure> m_pluralRulesStructure;
-    LazyProperty<JSGlobalObject, Structure> m_relativeTimeFormatStructure;
-    LazyProperty<JSGlobalObject, Structure> m_segmentIteratorStructure;
-    LazyProperty<JSGlobalObject, Structure> m_segmenterStructure;
-    LazyProperty<JSGlobalObject, Structure> m_segmentsStructure;
-    LazyClassStructure m_dateTimeFormatStructure;
-    LazyClassStructure m_numberFormatStructure;
-
-    LazyProperty<JSGlobalObject, Structure> m_calendarStructure;
-    LazyProperty<JSGlobalObject, Structure> m_durationStructure;
-    LazyProperty<JSGlobalObject, Structure> m_instantStructure;
-    LazyProperty<JSGlobalObject, Structure> m_plainDateStructure;
-    LazyProperty<JSGlobalObject, Structure> m_plainDateTimeStructure;
-    LazyProperty<JSGlobalObject, Structure> m_plainTimeStructure;
-    LazyProperty<JSGlobalObject, Structure> m_timeZoneStructure;
+//    LazyProperty<JSGlobalObject, IntlCollator> m_defaultCollator;
+//    LazyProperty<JSGlobalObject, IntlNumberFormat> m_defaultNumberFormat;
+//    LazyProperty<JSGlobalObject, Structure> m_collatorStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_displayNamesStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_durationFormatStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_listFormatStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_localeStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_pluralRulesStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_relativeTimeFormatStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_segmentIteratorStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_segmenterStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_segmentsStructure;
+//    LazyClassStructure m_dateTimeFormatStructure;
+//    LazyClassStructure m_numberFormatStructure;
+//
+//    LazyProperty<JSGlobalObject, Structure> m_calendarStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_durationStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_instantStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_plainDateStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_plainDateTimeStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_plainTimeStructure;
+//    LazyProperty<JSGlobalObject, Structure> m_timeZoneStructure;
 
     WriteBarrier<NullGetterFunction> m_nullGetterFunction;
     WriteBarrier<NullSetterFunction> m_nullSetterFunction;
@@ -737,8 +737,8 @@ public:
     JSInternalPromiseConstructor* internalPromiseConstructor() const { return m_internalPromiseConstructor.get(); }
     JSIteratorConstructor* iteratorConstructor() const { return m_iteratorConstructor.get(); }
 
-    IntlCollator* defaultCollator() const { return m_defaultCollator.get(this); }
-    IntlNumberFormat* defaultNumberFormat() const { return m_defaultNumberFormat.get(this); }
+//    IntlCollator* defaultCollator() const { return m_defaultCollator.get(this); }
+//    IntlNumberFormat* defaultNumberFormat() const { return m_defaultNumberFormat.get(this); }
 
     NullGetterFunction* nullGetterFunction() const { return m_nullGetterFunction.get(); }
     NullSetterFunction* nullSetterFunction() const { return m_nullSetterFunction.get(); }
@@ -938,32 +938,32 @@ public:
     Structure* webAssemblyFunctionStructure() const { return m_webAssemblyFunctionStructure.get(this); }
     Structure* webAssemblyWrapperFunctionStructure() const { return m_webAssemblyWrapperFunctionStructure.get(this); }
 #endif // ENABLE(WEBASSEMBLY)
-    Structure* collatorStructure() { return m_collatorStructure.get(this); }
-    Structure* dateTimeFormatStructure() { return m_dateTimeFormatStructure.get(this); }
-    Structure* displayNamesStructure() { return m_displayNamesStructure.get(this); }
-    Structure* durationFormatStructure() { return m_durationFormatStructure.get(this); }
-    Structure* listFormatStructure() { return m_listFormatStructure.get(this); }
-    Structure* numberFormatStructure() { return m_numberFormatStructure.get(this); }
-    Structure* localeStructure() { return m_localeStructure.get(this); }
-    Structure* pluralRulesStructure() { return m_pluralRulesStructure.get(this); }
-    Structure* relativeTimeFormatStructure() { return m_relativeTimeFormatStructure.get(this); }
-    Structure* segmentIteratorStructure() { return m_segmentIteratorStructure.get(this); }
-    Structure* segmenterStructure() { return m_segmenterStructure.get(this); }
-    Structure* segmentsStructure() { return m_segmentsStructure.get(this); }
+//    Structure* collatorStructure() { return m_collatorStructure.get(this); }
+//    Structure* dateTimeFormatStructure() { return m_dateTimeFormatStructure.get(this); }
+//    Structure* displayNamesStructure() { return m_displayNamesStructure.get(this); }
+//    Structure* durationFormatStructure() { return m_durationFormatStructure.get(this); }
+//    Structure* listFormatStructure() { return m_listFormatStructure.get(this); }
+//    Structure* numberFormatStructure() { return m_numberFormatStructure.get(this); }
+//    Structure* localeStructure() { return m_localeStructure.get(this); }
+//    Structure* pluralRulesStructure() { return m_pluralRulesStructure.get(this); }
+//    Structure* relativeTimeFormatStructure() { return m_relativeTimeFormatStructure.get(this); }
+//    Structure* segmentIteratorStructure() { return m_segmentIteratorStructure.get(this); }
+//    Structure* segmenterStructure() { return m_segmenterStructure.get(this); }
+//    Structure* segmentsStructure() { return m_segmentsStructure.get(this); }
     Structure* trustedScriptStructure() { return m_trustedScriptStructure.get(); }
-
-    JSObject* dateTimeFormatConstructor() { return m_dateTimeFormatStructure.constructor(this); }
-    JSObject* dateTimeFormatPrototype() { return m_dateTimeFormatStructure.prototype(this); }
-    JSObject* numberFormatConstructor() { return m_numberFormatStructure.constructor(this); }
-    JSObject* numberFormatPrototype() { return m_numberFormatStructure.prototype(this); }
-
-    Structure* calendarStructure() { return m_calendarStructure.get(this); }
-    Structure* durationStructure() { return m_durationStructure.get(this); }
-    Structure* instantStructure() { return m_instantStructure.get(this); }
-    Structure* plainDateStructure() { return m_plainDateStructure.get(this); }
-    Structure* plainDateTimeStructure() { return m_plainDateTimeStructure.get(this); }
-    Structure* plainTimeStructure() { return m_plainTimeStructure.get(this); }
-    Structure* timeZoneStructure() { return m_timeZoneStructure.get(this); }
+//
+//    JSObject* dateTimeFormatConstructor() { return m_dateTimeFormatStructure.constructor(this); }
+//    JSObject* dateTimeFormatPrototype() { return m_dateTimeFormatStructure.prototype(this); }
+//    JSObject* numberFormatConstructor() { return m_numberFormatStructure.constructor(this); }
+//    JSObject* numberFormatPrototype() { return m_numberFormatStructure.prototype(this); }
+//
+//    Structure* calendarStructure() { return m_calendarStructure.get(this); }
+//    Structure* durationStructure() { return m_durationStructure.get(this); }
+//    Structure* instantStructure() { return m_instantStructure.get(this); }
+//    Structure* plainDateStructure() { return m_plainDateStructure.get(this); }
+//    Structure* plainDateTimeStructure() { return m_plainDateTimeStructure.get(this); }
+//    Structure* plainTimeStructure() { return m_plainTimeStructure.get(this); }
+//    Structure* timeZoneStructure() { return m_timeZoneStructure.get(this); }
 
     JS_EXPORT_PRIVATE void setInspectable(bool);
     JS_EXPORT_PRIVATE bool inspectable() const;

@@ -22,7 +22,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
-
+#ifdef ENABLE_INTL
 #pragma once
 
 #include "InternalFunction.h"
@@ -48,3 +48,4 @@ private:
 STATIC_ASSERT_ISO_SUBSPACE_SHARABLE(TemporalCalendarConstructor, InternalFunction);
 
 } // namespace JSC
+#endif

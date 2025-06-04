@@ -55,6 +55,12 @@ typedef struct _GCancellable GCancellable;
 #endif
 
 #if USE(INSPECTOR_SOCKET_SERVER)
+//#error "USE_INSPECTOR_SOCKET_SERVER"
+#else
+#error "NOT USE_INSPECTOR_SOCKET_SERVER"
+#endif
+
+#if USE(INSPECTOR_SOCKET_SERVER)
 #include "RemoteInspectorConnectionClient.h"
 #include <wtf/JSONValues.h>
 #include <wtf/RefPtr.h>

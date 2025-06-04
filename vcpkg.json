@@ -1,8 +1,5 @@
 {
   "name": "webkit",
-  "dependencies": [
-    "icu"
-  ],
   "features": {
     "avif": {
       "description": "Build with AVIF image support",
@@ -40,8 +37,7 @@
           "name": "harfbuzz",
           "default-features": false,
           "features": [
-            "directwrite",
-            "icu"
+            "directwrite"
           ]
         }
       ]
@@ -65,10 +61,7 @@
         "libwebp",
         {
           "name": "libxml2",
-          "default-features": false,
-          "features": [
-            "icu"
-          ]
+          "default-features": false
         },
         "libxslt",
         "nghttp2",

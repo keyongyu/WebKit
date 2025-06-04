@@ -26,6 +26,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlCollator.h"
 
 #include "IntlObjectInlines.h"
@@ -530,3 +531,4 @@ void IntlCollator::checkICULocaleInvariants(const LocaleSet& locales)
 #endif
 
 } // namespace JSC
+#endif

@@ -19,6 +19,7 @@
  *
  */
 
+#ifdef ENABLE_INTL
 #include "config.h"
 #include "TemporalObject.h"
 
@@ -690,3 +691,4 @@ void rejectObjectWithCalendarOrTimeZone(JSGlobalObject* globalObject, JSObject* 
 } // namespace JSC
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_END
+#endif

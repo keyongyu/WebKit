@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#ifdef ENBLE_INTL
 #include "IntlDurationFormatPrototype.h"
 
 #include "IntlDurationFormat.h"
@@ -130,3 +131,4 @@ JSC_DEFINE_HOST_FUNCTION(intlDurationFormatPrototypeFuncResolvedOptions, (JSGlob
 }
 
 } // namespace JSC
+#endif

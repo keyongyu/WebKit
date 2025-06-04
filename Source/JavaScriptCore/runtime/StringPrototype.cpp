@@ -29,8 +29,8 @@
 #include "FrameTracers.h"
 #include "IntegrityInlines.h"
 #include "InterpreterInlines.h"
-#include "IntlCollator.h"
-#include "IntlObjectInlines.h"
+//#include "IntlCollator.h"
+//#include "IntlObjectInlines.h"
 #include "JSArray.h"
 #include "JSCInlines.h"
 #include "JSStringIterator.h"
@@ -69,9 +69,9 @@ static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncSlice);
 static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncSubstr);
 static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncToLowerCase);
 static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncToUpperCase);
-static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncLocaleCompare);
-static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncToLocaleLowerCase);
-static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncToLocaleUpperCase);
+//static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncLocaleCompare);
+//static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncToLocaleLowerCase);
+//static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncToLocaleUpperCase);
 static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncTrim);
 static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncTrimStart);
 static JSC_DECLARE_HOST_FUNCTION(stringProtoFuncTrimEnd);
@@ -147,9 +147,9 @@ void StringPrototype::finishCreation(VM& vm, JSGlobalObject* globalObject)
     putDirectWithoutTransition(vm, Identifier::fromString(vm, "substring"_s), globalObject->stringProtoSubstringFunction(), static_cast<unsigned>(PropertyAttribute::DontEnum));
     JSC_NATIVE_INTRINSIC_FUNCTION_WITHOUT_TRANSITION("toLowerCase"_s, stringProtoFuncToLowerCase, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public, StringPrototypeToLowerCaseIntrinsic);
     JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("toUpperCase"_s, stringProtoFuncToUpperCase, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public);
-    JSC_NATIVE_INTRINSIC_FUNCTION_WITHOUT_TRANSITION("localeCompare"_s, stringProtoFuncLocaleCompare, static_cast<unsigned>(PropertyAttribute::DontEnum), 1, ImplementationVisibility::Public, StringPrototypeLocaleCompareIntrinsic);
-    JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("toLocaleLowerCase"_s, stringProtoFuncToLocaleLowerCase, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public);
-    JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("toLocaleUpperCase"_s, stringProtoFuncToLocaleUpperCase, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public);
+//    JSC_NATIVE_INTRINSIC_FUNCTION_WITHOUT_TRANSITION("localeCompare"_s, stringProtoFuncLocaleCompare, static_cast<unsigned>(PropertyAttribute::DontEnum), 1, ImplementationVisibility::Public, StringPrototypeLocaleCompareIntrinsic);
+//    JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("toLocaleLowerCase"_s, stringProtoFuncToLocaleLowerCase, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public);
+//    JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("toLocaleUpperCase"_s, stringProtoFuncToLocaleUpperCase, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public);
     JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("trim"_s, stringProtoFuncTrim, static_cast<unsigned>(PropertyAttribute::DontEnum), 0, ImplementationVisibility::Public);
     JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("startsWith"_s, stringProtoFuncStartsWith, static_cast<unsigned>(PropertyAttribute::DontEnum), 1, ImplementationVisibility::Public);
     JSC_NATIVE_FUNCTION_WITHOUT_TRANSITION("endsWith"_s, stringProtoFuncEndsWith, static_cast<unsigned>(PropertyAttribute::DontEnum), 1, ImplementationVisibility::Public);
@@ -1032,145 +1032,145 @@ JSC_DEFINE_HOST_FUNCTION(stringProtoFuncToUpperCase, (JSGlobalObject* globalObje
 
     RELEASE_AND_RETURN(scope, JSValue::encode(jsString(vm, WTFMove(uppercasedString))));
 }
+//
+//JSC_DEFINE_HOST_FUNCTION(stringProtoFuncLocaleCompare, (JSGlobalObject* globalObject, CallFrame* callFrame))
+//{
+//    // 13.1.1 String.prototype.localeCompare (that [, locales [, options ]]) (ECMA-402 2.0)
+//    // http://ecma-international.org/publications/standards/Ecma-402.htm
+//
+//    VM& vm = globalObject->vm();
+//    auto scope = DECLARE_THROW_SCOPE(vm);
+//
+//    // 1. Let O be RequireObjectCoercible(this value).
+//    JSValue thisValue = callFrame->thisValue();
+//    if (!checkObjectCoercible(thisValue)) [[unlikely]]
+//        return throwVMTypeError(globalObject, scope, "String.prototype.localeCompare requires that |this| not be null or undefined"_s);
+//
+//    // 2. Let S be ToString(O).
+//    // 3. ReturnIfAbrupt(S).
+//    String string = thisValue.toWTFString(globalObject);
+//    RETURN_IF_EXCEPTION(scope, encodedJSValue());
+//
+//    // 4. Let That be ToString(that).
+//    // 5. ReturnIfAbrupt(That).
+//    JSValue thatValue = callFrame->argument(0);
+//    String that = thatValue.toWTFString(globalObject);
+//    RETURN_IF_EXCEPTION(scope, encodedJSValue());
+//
+//    JSValue locales = callFrame->argument(1);
+//    JSValue options = callFrame->argument(2);
+//    IntlCollator* collator = nullptr;
+//    if (locales.isUndefined() && options.isUndefined())
+//        collator = globalObject->defaultCollator();
+//    else {
+//        collator = IntlCollator::create(vm, globalObject->collatorStructure());
+//        collator->initializeCollator(globalObject, locales, options);
+//    }
+//    RETURN_IF_EXCEPTION(scope, encodedJSValue());
+//    RELEASE_AND_RETURN(scope, JSValue::encode(jsNumber(collator->compareStrings(globalObject, string, that))));
+//}
 
-JSC_DEFINE_HOST_FUNCTION(stringProtoFuncLocaleCompare, (JSGlobalObject* globalObject, CallFrame* callFrame))
-{
-    // 13.1.1 String.prototype.localeCompare (that [, locales [, options ]]) (ECMA-402 2.0)
-    // http://ecma-international.org/publications/standards/Ecma-402.htm
+//enum class CaseConversionMode {
+//    Upper,
+//    Lower,
+//};
+//template<CaseConversionMode mode>
+//static EncodedJSValue toLocaleCase(JSGlobalObject* globalObject, CallFrame* callFrame)
+//{
+//    VM& vm = globalObject->vm();
+//    auto scope = DECLARE_THROW_SCOPE(vm);
+//
+//    // 1. Let O be RequireObjectCoercible(this value).
+//    JSValue thisValue = callFrame->thisValue();
+//    if (!checkObjectCoercible(thisValue)) [[unlikely]]
+//        return throwVMTypeError(globalObject, scope);
+//
+//    // 2. Let S be ToString(O).
+//    JSString* sVal = thisValue.toString(globalObject);
+//    RETURN_IF_EXCEPTION(scope, encodedJSValue());
+//    auto s = sVal->value(globalObject);
+//
+//    // 3. ReturnIfAbrupt(S).
+//    RETURN_IF_EXCEPTION(scope, encodedJSValue());
+//
+//    JSValue localeValue = callFrame->argument(0);
+//
+//    // Optimization for empty strings.
+//    if (s->isEmpty() && localeValue.isUndefined())
+//        return JSValue::encode(sVal);
+//
+//    // 4. Let requestedLocales be CanonicalizeLocaleList(locales).
+//    Vector<String> requestedLocales = canonicalizeLocaleList(globalObject, localeValue);
+//
+//    // 5. ReturnIfAbrupt(requestedLocales).
+//    RETURN_IF_EXCEPTION(scope, encodedJSValue());
+//
+//    // 6. Let len be the number of elements in requestedLocales.
+//    size_t len = requestedLocales.size();
+//
+//    // 7. If len > 0, then
+//    // a. Let requestedLocale be the first element of requestedLocales.
+//    // 8. Else
+//    // a. Let requestedLocale be DefaultLocale().
+//    String requestedLocale = len > 0 ? requestedLocales.first() : defaultLocale(globalObject);
+//
+//    // 9. Let noExtensionsLocale be the String value that is requestedLocale with all Unicode locale extension sequences (6.2.1) removed.
+//    String noExtensionsLocale = removeUnicodeLocaleExtension(requestedLocale);
+//
+//    // 10. Let availableLocales be a List with the language tags of the languages for which the Unicode character database contains language sensitive case mappings.
+//    // Note 1: As of Unicode 5.1, the availableLocales list contains the elements "az", "el", "lt", and "tr".
+//    // 11. Let locale be BestAvailableLocale(availableLocales, noExtensionsLocale).
+//    String locale = bestAvailableLocale(noExtensionsLocale, [](const String& candidate) {
+//        if (candidate.length() != 2)
+//            return false;
+//        switch (computeTwoCharacters16Code(candidate)) {
+//        case computeTwoCharacters16Code("az"_s):
+//        case computeTwoCharacters16Code("el"_s):
+//        case computeTwoCharacters16Code("lt"_s):
+//        case computeTwoCharacters16Code("tr"_s):
+//            return true;
+//        default:
+//            return false;
+//        }
+//    });
+//
+//    // 12. If locale is undefined, let locale be "und".
+//    if (locale.isNull())
+//        locale = "und"_s;
+//
+//    // Delegate the following steps to icu u_strToLower or u_strToUpper.
+//    // 13. Let cpList be a List containing in order the code points of S as defined in ES2015, 6.1.4, starting at the first element of S.
+//    // 14. For each code point c in cpList, if the Unicode Character Database provides a lower(/upper) case equivalent of c that is either language insensitive or for the language locale, then replace c in cpList with that/those equivalent code point(s).
+//    // 15. Let cuList be a new List.
+//    // 16. For each code point c in cpList, in order, append to cuList the elements of the UTF-16 Encoding (defined in ES2015, 6.1.4) of c.
+//    // 17. Let L be a String whose elements are, in order, the elements of cuList.
+//
+//    // Most strings lower/upper case will be the same size as original, so try that first.
+//    Vector<UChar> buffer;
+//    buffer.reserveInitialCapacity(s->length());
+//    auto convertCase = mode == CaseConversionMode::Lower ? u_strToLower : u_strToUpper;
+//    auto status = callBufferProducingFunction(convertCase, buffer, StringView { s }.upconvertedCharacters().get(), s->length(), locale.utf8().data());
+//    if (U_FAILURE(status))
+//        return throwVMTypeError(globalObject, scope, String::fromLatin1(u_errorName(status)));
+//
+//    // 18. Return L.
+//    RELEASE_AND_RETURN(scope, JSValue::encode(jsString(vm, String { WTFMove(buffer) })));
+//}
 
-    VM& vm = globalObject->vm();
-    auto scope = DECLARE_THROW_SCOPE(vm);
-
-    // 1. Let O be RequireObjectCoercible(this value).
-    JSValue thisValue = callFrame->thisValue();
-    if (!checkObjectCoercible(thisValue)) [[unlikely]]
-        return throwVMTypeError(globalObject, scope, "String.prototype.localeCompare requires that |this| not be null or undefined"_s);
-
-    // 2. Let S be ToString(O).
-    // 3. ReturnIfAbrupt(S).
-    String string = thisValue.toWTFString(globalObject);
-    RETURN_IF_EXCEPTION(scope, encodedJSValue());
-
-    // 4. Let That be ToString(that).
-    // 5. ReturnIfAbrupt(That).
-    JSValue thatValue = callFrame->argument(0);
-    String that = thatValue.toWTFString(globalObject);
-    RETURN_IF_EXCEPTION(scope, encodedJSValue());
-
-    JSValue locales = callFrame->argument(1);
-    JSValue options = callFrame->argument(2);
-    IntlCollator* collator = nullptr;
-    if (locales.isUndefined() && options.isUndefined())
-        collator = globalObject->defaultCollator();
-    else {
-        collator = IntlCollator::create(vm, globalObject->collatorStructure());
-        collator->initializeCollator(globalObject, locales, options);
-    }
-    RETURN_IF_EXCEPTION(scope, encodedJSValue());
-    RELEASE_AND_RETURN(scope, JSValue::encode(jsNumber(collator->compareStrings(globalObject, string, that))));
-}
-
-enum class CaseConversionMode {
-    Upper,
-    Lower,
-};
-template<CaseConversionMode mode>
-static EncodedJSValue toLocaleCase(JSGlobalObject* globalObject, CallFrame* callFrame)
-{
-    VM& vm = globalObject->vm();
-    auto scope = DECLARE_THROW_SCOPE(vm);
-
-    // 1. Let O be RequireObjectCoercible(this value).
-    JSValue thisValue = callFrame->thisValue();
-    if (!checkObjectCoercible(thisValue)) [[unlikely]]
-        return throwVMTypeError(globalObject, scope);
-
-    // 2. Let S be ToString(O).
-    JSString* sVal = thisValue.toString(globalObject);
-    RETURN_IF_EXCEPTION(scope, encodedJSValue());
-    auto s = sVal->value(globalObject);
-
-    // 3. ReturnIfAbrupt(S).
-    RETURN_IF_EXCEPTION(scope, encodedJSValue());
-
-    JSValue localeValue = callFrame->argument(0);
-
-    // Optimization for empty strings.
-    if (s->isEmpty() && localeValue.isUndefined())
-        return JSValue::encode(sVal);
-
-    // 4. Let requestedLocales be CanonicalizeLocaleList(locales).
-    Vector<String> requestedLocales = canonicalizeLocaleList(globalObject, localeValue);
-
-    // 5. ReturnIfAbrupt(requestedLocales).
-    RETURN_IF_EXCEPTION(scope, encodedJSValue());
-
-    // 6. Let len be the number of elements in requestedLocales.
-    size_t len = requestedLocales.size();
-
-    // 7. If len > 0, then
-    // a. Let requestedLocale be the first element of requestedLocales.
-    // 8. Else
-    // a. Let requestedLocale be DefaultLocale().
-    String requestedLocale = len > 0 ? requestedLocales.first() : defaultLocale(globalObject);
-
-    // 9. Let noExtensionsLocale be the String value that is requestedLocale with all Unicode locale extension sequences (6.2.1) removed.
-    String noExtensionsLocale = removeUnicodeLocaleExtension(requestedLocale);
-
-    // 10. Let availableLocales be a List with the language tags of the languages for which the Unicode character database contains language sensitive case mappings.
-    // Note 1: As of Unicode 5.1, the availableLocales list contains the elements "az", "el", "lt", and "tr".
-    // 11. Let locale be BestAvailableLocale(availableLocales, noExtensionsLocale).
-    String locale = bestAvailableLocale(noExtensionsLocale, [](const String& candidate) {
-        if (candidate.length() != 2)
-            return false;
-        switch (computeTwoCharacters16Code(candidate)) {
-        case computeTwoCharacters16Code("az"_s):
-        case computeTwoCharacters16Code("el"_s):
-        case computeTwoCharacters16Code("lt"_s):
-        case computeTwoCharacters16Code("tr"_s):
-            return true;
-        default:
-            return false;
-        }
-    });
-
-    // 12. If locale is undefined, let locale be "und".
-    if (locale.isNull())
-        locale = "und"_s;
-
-    // Delegate the following steps to icu u_strToLower or u_strToUpper.
-    // 13. Let cpList be a List containing in order the code points of S as defined in ES2015, 6.1.4, starting at the first element of S.
-    // 14. For each code point c in cpList, if the Unicode Character Database provides a lower(/upper) case equivalent of c that is either language insensitive or for the language locale, then replace c in cpList with that/those equivalent code point(s).
-    // 15. Let cuList be a new List.
-    // 16. For each code point c in cpList, in order, append to cuList the elements of the UTF-16 Encoding (defined in ES2015, 6.1.4) of c.
-    // 17. Let L be a String whose elements are, in order, the elements of cuList.
-
-    // Most strings lower/upper case will be the same size as original, so try that first.
-    Vector<UChar> buffer;
-    buffer.reserveInitialCapacity(s->length());
-    auto convertCase = mode == CaseConversionMode::Lower ? u_strToLower : u_strToUpper;
-    auto status = callBufferProducingFunction(convertCase, buffer, StringView { s }.upconvertedCharacters().get(), s->length(), locale.utf8().data());
-    if (U_FAILURE(status))
-        return throwVMTypeError(globalObject, scope, String::fromLatin1(u_errorName(status)));
-
-    // 18. Return L.
-    RELEASE_AND_RETURN(scope, JSValue::encode(jsString(vm, String { WTFMove(buffer) })));
-}
-
-JSC_DEFINE_HOST_FUNCTION(stringProtoFuncToLocaleLowerCase, (JSGlobalObject* globalObject, CallFrame* callFrame))
-{
-    // 13.1.2 String.prototype.toLocaleLowerCase ([locales])
-    // http://ecma-international.org/publications/standards/Ecma-402.htm
-    return toLocaleCase<CaseConversionMode::Lower>(globalObject, callFrame);
-}
-
-JSC_DEFINE_HOST_FUNCTION(stringProtoFuncToLocaleUpperCase, (JSGlobalObject* globalObject, CallFrame* callFrame))
-{
-    // 13.1.3 String.prototype.toLocaleUpperCase ([locales])
-    // http://ecma-international.org/publications/standards/Ecma-402.htm
-    // This function interprets a string value as a sequence of code points, as described in ES2015, 6.1.4. This function behaves in exactly the same way as String.prototype.toLocaleLowerCase, except that characters are mapped to their uppercase equivalents as specified in the Unicode character database.
-    return toLocaleCase<CaseConversionMode::Upper>(globalObject, callFrame);
-}
+//JSC_DEFINE_HOST_FUNCTION(stringProtoFuncToLocaleLowerCase, (JSGlobalObject* globalObject, CallFrame* callFrame))
+//{
+//    // 13.1.2 String.prototype.toLocaleLowerCase ([locales])
+//    // http://ecma-international.org/publications/standards/Ecma-402.htm
+//    return toLocaleCase<CaseConversionMode::Lower>(globalObject, callFrame);
+//}
+//
+//JSC_DEFINE_HOST_FUNCTION(stringProtoFuncToLocaleUpperCase, (JSGlobalObject* globalObject, CallFrame* callFrame))
+//{
+//    // 13.1.3 String.prototype.toLocaleUpperCase ([locales])
+//    // http://ecma-international.org/publications/standards/Ecma-402.htm
+//    // This function interprets a string value as a sequence of code points, as described in ES2015, 6.1.4. This function behaves in exactly the same way as String.prototype.toLocaleLowerCase, except that characters are mapped to their uppercase equivalents as specified in the Unicode character database.
+//    return toLocaleCase<CaseConversionMode::Upper>(globalObject, callFrame);
+//}
 
 enum class TrimKind : uint8_t {
     TrimStart = 1,

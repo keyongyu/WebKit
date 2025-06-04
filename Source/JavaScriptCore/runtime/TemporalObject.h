@@ -19,6 +19,7 @@
  *
  */
 
+#ifdef ENABLE_INTL
 #pragma once
 
 #include "JSObject.h"
@@ -142,3 +143,4 @@ enum class TemporalOverflow : bool {
 TemporalOverflow toTemporalOverflow(JSGlobalObject*, JSObject*);
 
 } // namespace JSC
+#endif
