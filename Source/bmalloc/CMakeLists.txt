@@ -694,9 +694,9 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     )
 endif ()
 
-set(bmalloc_LIBRARIES
-    ${CMAKE_DL_LIBS}
-)
+#set(bmalloc_LIBRARIES
+#    ${CMAKE_DL_LIBS}
+#)
 
 if (ENABLE_MALLOC_HEAP_BREAKDOWN)
     list(APPEND bmalloc_LIBRARIES ${MALLOC_HEAP_BREAKDOWN_LIBRARIES})
@@ -728,6 +728,8 @@ if (ENABLE_MALLOC_HEAP_BREAKDOWN)
 endif ()
 
 WEBKIT_FRAMEWORK_DECLARE(bmalloc)
+set_target_properties(bmalloc PROPERTIES MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
+
 WEBKIT_INCLUDE_CONFIG_FILES_IF_EXISTS()
 
 WEBKIT_COPY_FILES(bmalloc_CopyHeaders

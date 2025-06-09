@@ -408,6 +408,7 @@ set(LLIntSettingsExtractor_PRIVATE_INCLUDE_DIRECTORIES
 set(LLIntSettingsExtractor_FRAMEWORKS ${JavaScriptCore_FRAMEWORKS})
 set(LLIntSettingsExtractor_DEPENDENCIES JavaScriptCore_CopyHeaders)
 WEBKIT_EXECUTABLE(LLIntSettingsExtractor)
+set_target_properties(LLIntSettingsExtractor PROPERTIES MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
 
 # LLIntSettingsExtractor target needs to have a direct or indirect
 # dependency to Bytecodes target for CMake Visual Studio generator to
@@ -427,6 +428,8 @@ set(LLIntOffsetsExtractor_PRIVATE_INCLUDE_DIRECTORIES
 set(LLIntOffsetsExtractor_FRAMEWORKS ${JavaScriptCore_FRAMEWORKS})
 set(LLIntOffsetsExtractor_DEPENDENCIES JavaScriptCore_CopyHeaders JSCBuiltins)
 WEBKIT_EXECUTABLE(LLIntOffsetsExtractor)
+
+set_target_properties(LLIntOffsetsExtractor PROPERTIES MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
 
 # The build system will execute asm.rb every time LLIntOffsetsExtractor's mtime is newer than
 # LLIntAssembly.h's mtime. The problem we have here is: asm.rb has some built-in optimization
@@ -467,6 +470,8 @@ add_custom_command(
 # single source file, so we need to create a separate target for it.
 add_library(LowLevelInterpreterLib OBJECT llint/LowLevelInterpreter.cpp
     ${JavaScriptCore_DERIVED_SOURCES_DIR}/${LLIntOutput})
+
+set_target_properties(LowLevelInterpreterLib PROPERTIES MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
 
 # WebAssembly generator
 
@@ -1562,11 +1567,14 @@ target_precompile_headers(JavaScriptCore PRIVATE JavaScriptCorePrefix.h)
 
 if (NOT "${PORT}" STREQUAL "Mac")
     if (${JavaScriptCore_LIBRARY_TYPE} STREQUAL "SHARED")
+        #message(FATAL, "shared lib for javascriptcore")
         WEBKIT_POPULATE_LIBRARY_VERSION(JAVASCRIPTCORE)
         set_target_properties(JavaScriptCore PROPERTIES VERSION ${JAVASCRIPTCORE_VERSION} SOVERSION ${JAVASCRIPTCORE_VERSION_MAJOR})
         install(TARGETS JavaScriptCore DESTINATION "${LIB_INSTALL_DIR}")
     endif ()
 endif ()
+
+set_target_properties(JavaScriptCore PROPERTIES MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
 
 # Force staging of shared scripts, even if they aren't directly used to build JavaScriptCore.
 

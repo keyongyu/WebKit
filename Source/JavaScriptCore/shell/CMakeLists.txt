@@ -21,6 +21,7 @@ if (WIN32)
 endif ()
 
 WEBKIT_EXECUTABLE_DECLARE(jsc)
+set_target_properties(jsc PROPERTIES MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
 
 if (DEVELOPER_MODE)
     set(testapi_SOURCES
