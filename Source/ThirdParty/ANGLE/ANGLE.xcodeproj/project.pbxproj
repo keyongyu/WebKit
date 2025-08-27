@@ -1089,6 +1089,10 @@
 		7BFD81852D50CF7C0010ED68 /* span.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BFD81832D50CF7C0010ED68 /* span.h */; };
 		7BFF6EDF29E9908A009E1A57 /* SourcesPlatform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B037F9429E98CF200D23E74 /* SourcesPlatform.cpp */; };
 		7BFF6EE229E9908A009E1A57 /* SourcesPlatform-mm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7B037F9529E98CF200D23E74 /* SourcesPlatform-mm.mm */; };
+		974896AE2E3101AE00FABB53 /* FrameCapture_mock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFD0029227449D1D002BE3BC /* FrameCapture_mock.cpp */; };
+		974896AF2E31033300FABB53 /* serialize_mock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BB973A92DE48EB000455D13 /* serialize_mock.cpp */; };
+		97E7E4A72E30F09000E90C73 /* libGLESv2_autogen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BB972342DE480F000455D13 /* libGLESv2_autogen.cpp */; };
+		97E7E4A82E30F09A00E90C73 /* libEGL_autogen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9723C2DE4827800455D13 /* libEGL_autogen.cpp */; };
 		A3C49BF6255DF6C4005E8DF7 /* compression_utils_portable.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C49BF1255DEDC5005E8DF7 /* compression_utils_portable.h */; };
 		A3C49BFB255DF6E6005E8DF7 /* EGLReusableSync.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C3FE13255DDE0100B73018 /* EGLReusableSync.h */; };
 		A3C49BFC255DF6E6005E8DF7 /* EGLSyncImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C3FE14255DDE0200B73018 /* EGLSyncImpl.h */; };
@@ -5313,7 +5317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "[ -z \"${WK_DERIVED_SDK_HEADERS_DIR}\" -o -d \"${WK_DERIVED_SDK_HEADERS_DIR}\" ] && touch \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "#[ -z \"${WK_DERIVED_SDK_HEADERS_DIR}\" -o -d \"${WK_DERIVED_SDK_HEADERS_DIR}\" ] && touch \"${SCRIPT_OUTPUT_FILE_0}\"\ntouch \"${SCRIPT_OUTPUT_FILE_0}\" \n";
 		};
 		FFDA50D5269F895400AE11E2 /* Bake Metal Library to NSData */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5699,6 +5703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BB973A82DE48E7700455D13 /* android_util.cpp in Sources */,
+				974896AF2E31033300FABB53 /* serialize_mock.cpp in Sources */,
 				7BB973252DE4873000455D13 /* angletypes.cpp in Sources */,
 				7BB973592DE4874100455D13 /* AstcDecompressorNoOp.cpp in Sources */,
 				7BB973122DE4873000455D13 /* AttributeMap.cpp in Sources */,
@@ -5751,6 +5756,7 @@
 				7BB9734A2DE4873000455D13 /* FramebufferAttachment.cpp in Sources */,
 				7BB973802DE4888800455D13 /* FramebufferImpl.cpp in Sources */,
 				7BB973832DE4888800455D13 /* FrameBufferMtl.mm in Sources */,
+				974896AE2E3101AE00FABB53 /* FrameCapture_mock.cpp in Sources */,
 				7BB973492DE4873000455D13 /* GLES1Renderer.cpp in Sources */,
 				7BB973272DE4873000455D13 /* GLES1State.cpp in Sources */,
 				7BB973372DE4873000455D13 /* gles_extensions_autogen.cpp in Sources */,
@@ -5764,6 +5770,8 @@
 				7BB9737B2DE4888800455D13 /* ImageMtl.mm in Sources */,
 				7BB973482DE4873000455D13 /* IndexRangeCache.cpp in Sources */,
 				7BB9736F2DE4888800455D13 /* IOSurfaceSurfaceMtl.mm in Sources */,
+				97E7E4A82E30F09A00E90C73 /* libEGL_autogen.cpp in Sources */,
+				97E7E4A72E30F09000E90C73 /* libGLESv2_autogen.cpp in Sources */,
 				7BB973902DE4888800455D13 /* load_functions_table_autogen.cpp in Sources */,
 				7BB9735C2DE4874100455D13 /* loadimage.cpp in Sources */,
 				7BB9735B2DE4874100455D13 /* loadimage_astc.cpp in Sources */,
@@ -6516,6 +6524,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BB972052DE47BDC00455D13 /* ANGLE-static.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				SDKROOT = iphoneos;
+				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Debug;
 		};
@@ -6523,6 +6535,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BB972052DE47BDC00455D13 /* ANGLE-static.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				SDKROOT = iphoneos;
+				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Release;
 		};
@@ -6530,6 +6546,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BB972052DE47BDC00455D13 /* ANGLE-static.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Production;
 		};
@@ -6600,6 +6619,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BF554CA2C81EFF9002B101E /* translator.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				SDKROOT = iphoneos;
+				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Debug;
 		};
@@ -6607,6 +6630,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BF554CA2C81EFF9002B101E /* translator.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				SDKROOT = iphoneos;
+				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Release;
 		};
@@ -6614,6 +6641,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BF554CA2C81EFF9002B101E /* translator.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Production;
 		};

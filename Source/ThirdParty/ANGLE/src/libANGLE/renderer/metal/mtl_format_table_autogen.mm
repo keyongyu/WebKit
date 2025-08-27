@@ -2151,7 +2151,7 @@ void Format::init(const DisplayMtl *display, angle::FormatID intendedFormatId_)
             break;
 
 #    endif  // ASTC formats
-#    if (TARGET_OS_IOS && __IPHONE_OS_VERSION_MAX_ALLOWED >= 160400) || \
+#    if (TARGET_OS_IOS && __IPHONE_OS_VERSION_MIN_ALLOWED >= 160400) || \
         (TARGET_OS_TV && __TV_OS_VERSION_MAX_ALLOWED >= 160400) || TARGET_OS_VISION
         case angle::FormatID::BC1_RGBA_UNORM_BLOCK:
 
@@ -4078,7 +4078,7 @@ void FormatTable::initNativeFormatCapsAutogen(const DisplayMtl *display)
                   /** depthRenderable*/ true);
 
 #if TARGET_OS_OSX || TARGET_OS_MACCATALYST ||                       \
-    (TARGET_OS_IOS && __IPHONE_OS_VERSION_MAX_ALLOWED >= 160400) || \
+    (TARGET_OS_IOS && __IPHONE_OS_VERSION_MIN_ALLOWED >= 160400) || \
     (TARGET_OS_TV && __TV_OS_VERSION_MAX_ALLOWED >= 160400) || TARGET_OS_VISION
     setFormatCaps(MTLPixelFormatBC1_RGBA, /** filterable*/ display->supportsBCTextureCompression(),
                   /** writable*/ false, /** blendable*/ false, /** multisample*/ false,

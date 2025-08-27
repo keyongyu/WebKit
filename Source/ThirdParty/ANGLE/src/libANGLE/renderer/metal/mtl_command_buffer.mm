@@ -386,20 +386,20 @@ inline void UseResourceCmd(id<MTLRenderCommandEncoder> encoder, IntermediateComm
 
 inline void MemoryBarrierCmd(id<MTLRenderCommandEncoder> encoder, IntermediateCommandStream *stream)
 {
-    MTLBarrierScope scope  = stream->fetch<MTLBarrierScope>();
-    MTLRenderStages after  = stream->fetch<MTLRenderStages>();
-    MTLRenderStages before = stream->fetch<MTLRenderStages>();
-    [encoder memoryBarrierWithScope:scope afterStages:after beforeStages:before];
+//    MTLBarrierScope scope  = stream->fetch<MTLBarrierScope>();
+//    MTLRenderStages after  = stream->fetch<MTLRenderStages>();
+//    MTLRenderStages before = stream->fetch<MTLRenderStages>();
+//    [encoder memoryBarrierWithScope:scope afterStages:after beforeStages:before];
 }
 
 inline void MemoryBarrierWithResourceCmd(id<MTLRenderCommandEncoder> encoder,
                                          IntermediateCommandStream *stream)
 {
-    id<MTLResource> resource = stream->fetch<id<MTLResource>>();
-    MTLRenderStages after    = stream->fetch<MTLRenderStages>();
-    MTLRenderStages before   = stream->fetch<MTLRenderStages>();
-    [encoder memoryBarrierWithResources:&resource count:1 afterStages:after beforeStages:before];
-    [resource ANGLE_MTL_RELEASE];
+//    id<MTLResource> resource = stream->fetch<id<MTLResource>>();
+//    MTLRenderStages after    = stream->fetch<MTLRenderStages>();
+//    MTLRenderStages before   = stream->fetch<MTLRenderStages>();
+//    [encoder memoryBarrierWithResources:&resource count:1 afterStages:after beforeStages:before];
+//    [resource ANGLE_MTL_RELEASE];
 }
 
 inline void InsertDebugSignpostCmd(id<MTLRenderCommandEncoder> encoder,
