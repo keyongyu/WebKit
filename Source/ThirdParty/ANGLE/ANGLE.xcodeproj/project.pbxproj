@@ -15,7 +15,7 @@
 			dependencies = (
 				314C6E9F2CD33603001EA6B3 /* PBXTargetDependency */,
 				314C6E8C2CD2FA12001EA6B3 /* PBXTargetDependency */,
-				31DB79572491C35400982878 /* PBXTargetDependency */,
+				978FE97C2E601A4B0088C727 /* PBXTargetDependency */,
 			);
 			name = ANGLE;
 			productName = ANGLE;
@@ -1443,13 +1443,6 @@
 			remoteGlobalIDString = 7BF5549A2C81EDE0002B101E;
 			remoteInfo = translator;
 		};
-		31DB79562491C35400982878 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB39D0701200ED9200088E69 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 31CDFDF32491819E00486F27;
-			remoteInfo = "ANGLE (dynamic)";
-		};
 		7B533A902E0A93670069B90F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB39D0701200ED9200088E69 /* Project object */;
@@ -1547,6 +1540,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FFDA50C4269F845100AE11E2;
 			remoteInfo = ANGLEMetalLib;
+		};
+		978FE97B2E601A4B0088C727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB39D0701200ED9200088E69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BB971FF2DE47B8A00455D13;
+			remoteInfo = "ANGLE (static)";
 		};
 		FF194FF52744331A006A97A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -6370,11 +6370,6 @@
 			target = 7BF5549A2C81EDE0002B101E /* translator */;
 			targetProxy = 314C6E9E2CD33603001EA6B3 /* PBXContainerItemProxy */;
 		};
-		31DB79572491C35400982878 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 31CDFDF32491819E00486F27 /* ANGLE (dynamic) */;
-			targetProxy = 31DB79562491C35400982878 /* PBXContainerItemProxy */;
-		};
 		7B533A912E0A93670069B90F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7B533A852E0A933D0069B90F /* ANGLETranslator */;
@@ -6445,6 +6440,11 @@
 			target = FFDA50C4269F845100AE11E2 /* ANGLEMetalLib */;
 			targetProxy = 7BFAF9362DE6FDD800327F7F /* PBXContainerItemProxy */;
 		};
+		978FE97C2E601A4B0088C727 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BB971FF2DE47B8A00455D13 /* ANGLE (static) */;
+			targetProxy = 978FE97B2E601A4B0088C727 /* PBXContainerItemProxy */;
+		};
 		FF194FF62744331A006A97A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FFDA50C4269F845100AE11E2 /* ANGLEMetalLib */;
@@ -6477,18 +6477,21 @@
 		31DB79502491C33300982878 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Debug;
 		};
 		31DB79512491C33300982878 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Release;
 		};
 		31DB79522491C33300982878 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Production;
 		};
@@ -6620,7 +6623,7 @@
 			baseConfigurationReference = 7BF554CA2C81EFF9002B101E /* translator.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				SDKROOT = iphoneos;
 				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
@@ -6631,7 +6634,7 @@
 			baseConfigurationReference = 7BF554CA2C81EFF9002B101E /* translator.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				SDKROOT = iphoneos;
 				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
@@ -6642,7 +6645,7 @@
 			baseConfigurationReference = 7BF554CA2C81EFF9002B101E /* translator.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				WK_COMMON_OTHER_TAPI_FLAGS = "-x objective-c++ -std=c++20 -fno-rtti $(WK_SANITIZER_OTHER_TAPI_FLAGS)";
 			};
 			name = Production;
@@ -6756,6 +6759,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BFAF8FB2DE6F43700327F7F /* utils.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Debug;
 		};
@@ -6763,6 +6767,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BFAF8FB2DE6F43700327F7F /* utils.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Release;
 		};
@@ -6770,6 +6775,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BFAF8FB2DE6F43700327F7F /* utils.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Production;
 		};
@@ -6792,6 +6798,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE0D91526A0B4E80071ADAE /* AngleMetalLib.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				"MTL_PREPROCESSOR_DEFINITIONS[sdk=*]" = "";
 			};
 			name = Debug;
@@ -6800,6 +6807,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE0D91526A0B4E80071ADAE /* AngleMetalLib.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Release;
 		};
@@ -6807,6 +6815,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE0D91526A0B4E80071ADAE /* AngleMetalLib.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 			};
 			name = Production;
 		};
